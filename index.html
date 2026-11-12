@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<!-- Vauhti website, version 2: reiluus-edellä ja kolme kyytiluokkaa. Ensimmäinen luonnos: ../website-v1/ -->
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vauhti — Reilu tapa tilata taksi.</title>
+<meta name="description" content="Vauhti on kotimainen taksipalvelu, jonka komissio on vain 5 %. Turvallinen, nopea ja helppo tapa tilata taksi. Reilu tapa ajaa taksia.">
+<meta name="theme-color" content="#0A1020">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vauhti — Reilu tapa tilata taksi.">
+<meta property="og:description" content="Taksiala on ollut kestämättömällä pohjalla. Vauhti on kotimainen reilu vaihtoehto: komissio vain 5 %, kuljettaja pitää 95 %, ja asiakas näkee kiinteän hinnan ennen kyytiä.">
+<meta property="og:image" content="assets/shots/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<link rel="canonical" href="https://vauhti.fi/website/">
+<link rel="alternate" hreflang="fi" href="https://vauhti.fi/website/">
+<link rel="alternate" hreflang="en" href="https://vauhti.fi/website/en/">
+<link rel="alternate" hreflang="it" href="https://vauhti.fi/website/it/">
+<link rel="alternate" hreflang="x-default" href="https://vauhti.fi/website/">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/fonts.css?v=1">
+<link rel="stylesheet" href="assets/tokens.css?v=1">
+<link rel="stylesheet" href="assets/site.css?v=6">
+</head>
+<body>
+<a class="skip-link" href="#main">Siirry sisältöön</a>
+
+<!-- Icon sprite (paths from the Vauhti icon set) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.8 16.2v-3.4c0-.5.2-.9.6-1.2l1.7-1.4 1.3-2.3A2 2 0 0 1 9.2 7h5.6a2 2 0 0 1 1.7 1l1.4 2.3 1.7 1.4c.4.3.6.7.6 1.2v3.3"/>
+    <path d="M3.8 16.2h16.4"/><path d="M4.5 16.2v1.6M19.5 16.2v1.6"/>
+    <circle cx="7.4" cy="16.3" r="1.7"/><circle cx="16.6" cy="16.3" r="1.7"/>
+    <path d="M9.2 10.4h5.6"/><path d="M6.2 12.6h11.6"/>
+  </symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.4 3.6C11.6 3 4.4 9.7 6.2 17.8c8.1 1.8 14.8-5.4 14.2-14.2Z"/>
+    <path d="M7.4 16.6C9 12.4 12 9.1 16.6 7"/>
+  </symbol>
+  <symbol id="i-van" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.8 16.6V9.2c0-.7.5-1.2 1.2-1.2h9.6l4 3.3 3.1 1.1c.4.2.6.5.6.9v3.3"/>
+    <path d="M2.8 16.6h18.5"/><circle cx="7" cy="16.8" r="1.8"/><circle cx="17" cy="16.8" r="1.8"/>
+    <path d="M4 16.8v1.4M20 16.8v1.4"/><path d="M13.4 8v4.4h7.4"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.8 4.8 5.7v5.7c0 4.6 3 8.6 7.2 10.1 4.2-1.5 7.2-5.5 7.2-10.1V5.7L12 2.8Z"/>
+    <path d="m8.8 11.8 2.2 2.2 4.4-4.4"/>
+  </symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.2 8.6V6.8a2 2 0 0 0-2-2H4.8a2 2 0 0 0-2 2v10.4a2 2 0 0 0 2 2h13.4a2 2 0 0 0 2-2v-1.8"/>
+    <path d="M21.2 8.6h-5.4a2.7 2.7 0 0 0 0 5.4h5.4Z"/>
+  </symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13.4 2.8 4.8 13.6h6l-1.4 7.6 8.6-10.8h-6l1.4-7.6Z"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.6 2.2"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.4 3h2.9l1.5 4-2 1.5a12.4 12.4 0 0 0 5.7 5.7l1.5-2 4 1.5v2.9a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.2 2 2 0 0 1 6.4 3Z"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="8.2" r="3.8"/><path d="M2.4 20.4c.5-3.6 3.3-5.8 6.6-5.8s6.1 2.2 6.6 5.8"/>
+    <path d="M16.2 5.1a3.8 3.8 0 0 1 0 7.4M17.6 14.9c2.4.5 3.9 2.4 4.2 5.1"/>
+  </symbol>
+  <symbol id="i-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="16.4" rx="4.6" ry="3.6"/>
+    <circle cx="6.2" cy="11.6" r="1.7"/><circle cx="9.8" cy="8.4" r="1.7"/>
+    <circle cx="14.2" cy="8.4" r="1.7"/><circle cx="17.8" cy="11.6" r="1.7"/>
+  </symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.8" y="5.4" width="18.4" height="13.2" rx="2.4"/><path d="M2.8 10h18.4"/><path d="M6.6 14.6h3.2"/>
+  </symbol>
+  <symbol id="i-work" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="7.5" width="18" height="12.5" rx="2"/>
+    <path d="M9 7.5V5.8c0-.7.6-1.3 1.3-1.3h3.4c.7 0 1.3.6 1.3 1.3v1.7"/>
+    <path d="M3 12.4h18"/><path d="M10.4 12.4v2.2h3.2v-2.2"/>
+  </symbol>
+  <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="5.4" cy="5.4" r="2.6"/><circle cx="18.6" cy="18.6" r="2.6"/>
+    <path d="M8 5.4h6.4a4 4 0 0 1 0 8H9.6a4 4 0 0 0 0 8H16"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m4.5 12.5 5 5L20 6.8"/>
+  </symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.2" y="5" width="17.6" height="16" rx="2.6"/>
+    <path d="M3.2 10h17.6M8 2.8v4.4M16 2.8v4.4"/><path d="M7.6 14h2M11 14h2M14.4 14h2M7.6 17.4h2M11 17.4h2"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="top" data-open="false">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Vauhti etusivu">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="19" fill="#00C2A8"/>
+        <path d="M18 21 32 44 46 21" fill="none" stroke="#0A1020" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="18" cy="21" r="4.2" fill="#0A1020"/><circle cx="46" cy="21" r="4.2" fill="#fff"/>
+      </svg>
+      <span>vauhti<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Päävalikko">
+      <a href="#kyyti">Kyyti</a>
+      <a href="#reiluus">Reiluus</a>
+      <a href="#hinnat">Kyytiluokat</a>
+      <a href="#turvallisuus">Turvallisuus</a>
+      <a href="#kuljettajalle">Kuljettajalle</a>
+      <a href="#yrityksille">Yrityksille</a>
+      <a href="#ukk">Apua</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Kieli">
+        <a href="./" aria-current="true">FI</a>
+        <a href="en/" lang="en" hreflang="en">EN</a>
+        <a href="it/" lang="it" hreflang="it">IT</a>
+      </div>
+      <a class="nav-login" href="#lataa">Kirjaudu</a>
+      <a class="btn btn-primary btn-sm" href="#lataa">Lataa sovellus</a>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="top" aria-label="Avaa valikko">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="kyyti">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow on-dark" data-cms="kyyti_kotimainen_taksipalvelu_5_komissio">Kotimainen taksipalvelu · 5 % komissio</span>
+        <h1 data-cms="kyyti_reilu_tapa_tilata_taksi">Reilu tapa<br><em>tilata taksi.</em></h1>
+        <p class="hero-sub" data-cms="kyyti_taksiala_suomessa_on_ollut_kestamattomalla_poh">Taksiala Suomessa on ollut kestämättömällä pohjalla. Vauhti on kotimainen reilu vaihtoehto: turvallinen, nopea ja helppo tapa tilata taksi — ja reilu tapa ajaa taksia. Kuljettaja maksaa vain 5&nbsp;% komissiota.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kyyti">Tilaa kyyti</a>
+          <a class="btn btn-ghost" href="#kuljettajalle">Aja Vauhtia</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>5 %</b><span>Komissio</span></div>
+          <div><b>3 min</b><span>Keskimääräinen nouto</span></div>
+          <div><b>4,92 ★</b><span>Kuljettajien keskiarvo</span></div>
+        </div>
+      </div>
+
+      <div class="book-card" aria-label="Tilaa kyyti">
+        <div class="book-head">
+          <h2 data-cms="kyyti_minne_mennaan">Minne mennään?</h2>
+          <span class="book-badge"><svg class="ico" style="width:14px;height:14px" aria-hidden="true"><use href="#i-bolt"/></svg> Kiinteä hinta</span>
+        </div>
+
+        <div class="field">
+          <span class="dot" aria-hidden="true"></span>
+          <input value="Nykyinen sijainti" aria-label="Lähtöpaikka">
+        </div>
+        <div class="field">
+          <svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>
+          <input value="Kallio, Helsinki" aria-label="Määränpää">
+        </div>
+
+        <div class="ride-list" role="group" aria-label="Kyytiluokka">
+          <button class="ride-option" type="button" data-price="12,40 €" aria-pressed="true">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>
+            <span class="grow"><span class="name">Vauhti</span><span class="ride-fastest">Nopein</span><span class="meta">4 min · 1–4 henkilöä</span></span>
+            <span class="price"><b>12,40 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="15,80 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Perhe</span><span class="meta">6 min · lastenistuin</span></span>
+            <span class="price"><b>15,80 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="14,60 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Lemmikki</span><span class="meta">5 min · lemmikki mukana</span></span>
+            <span class="price"><b>14,60 €</b><span>3,2 km</span></span>
+          </button>
+        </div>
+
+        <div class="book-pay">
+          <span class="pay-left"><svg class="ico" style="width:18px;height:18px" aria-hidden="true"><use href="#i-card"/></svg> Visa •• 4242</span>
+          <a class="link" href="#ukk">Vaihda</a>
+        </div>
+
+        <a class="btn btn-primary btn-block" href="demo/?screen=/options">Tilaa kyyti · <span id="book-total">12,40 €</span></a>
+        <p class="tiny muted" style="margin-top:10px;text-align:center" data-cms="kyyti_hinta_sisaltaa_alv_25_5_ei_piilokuluja">Hinta sisältää ALV 25,5 %. Ei piilokuluja.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST ================= -->
+  <div class="trust-strip" aria-label="Vauhti lukuina">
+    <div class="wrap trust-grid">
+      <div class="trust-item"><b>95 %</b><span>Jää kuljettajalle</span></div>
+      <div class="trust-item"><b>0 €</b><span>Aloitusmaksu</span></div>
+      <div class="trust-item"><b>3</b><span>Selkeää kyytiluokkaa</span></div>
+      <div class="trust-item"><b>24/7</b><span>Tuki suomeksi</span></div>
+    </div>
+  </div>
+
+  <!-- ================= FAIR ALTERNATIVE ================= -->
+  <section class="section fair" id="reiluus">
+    <div class="wrap fair-grid">
+      <div class="fair-copy">
+        <span class="eyebrow on-dark" data-cms="reiluus_reilu_vaihtoehto">Reilu vaihtoehto</span>
+        <h2 data-cms="reiluus_taksiala_on_ollut_kestamattomalla_pohjalla">Taksiala on ollut<br><em>kestämättömällä pohjalla.</em></h2>
+        <p class="lead" data-cms="reiluus_vauhti_tuo_markkinoille_reilun_vaihtoehdon_kot">Vauhti tuo markkinoille reilun vaihtoehdon: kotimaisen palvelun, jonka komissio on vain 5 %. Kuljettaja pitää 95 % jokaisesta kyydistä.</p>
+        <p class="fair-claim" data-cms="reiluus_turvallinen_nopea_ja_helppo_tapa_tilata_taksi">Turvallinen, nopea ja helppo tapa tilata taksi.<br><span>Reilu tapa ajaa taksia.</span></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="demo/?screen=/home">Tilaa kyyti</a>
+          <a class="btn btn-ghost" href="#kuljettajalle">Ala kuljettajaksi</a>
+        </div>
+      </div>
+
+      <div class="fair-panel" aria-label="Mihin kyydin hinta menee">
+        <div class="fair-panel-head">
+          <span class="tiny">Esimerkki 20 € kyydistä</span>
+          <b>Missä raha menee?</b>
+        </div>
+        <div class="fair-split" aria-hidden="true"><span></span></div>
+        <div class="fair-rows">
+          <div class="fair-row"><span>Kuljettajalle</span><b>19,00 €</b></div>
+          <div class="fair-row"><span>Vauhti · 5 %</span><b>1,00 €</b></div>
+          <div class="fair-row muted"><span>Aloitusmaksu</span><b>0,00 €</b></div>
+        </div>
+        <p class="fair-note" data-cms="reiluus_ei_piilokuluja_ei_yllattavia_vahennyksia_kulje">Ei piilokuluja. Ei yllättäviä vähennyksiä. Kuljettaja pitää 95 % jokaisesta kyydistä.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="nain-se-toimii">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="nain_se_toimii_nain_se_toimii">Näin se toimii</span>
+        <h2 data-cms="nain_se_toimii_kolme_askelta_ei_yllatyksia">Kolme askelta. Ei yllätyksiä.</h2>
+        <p data-cms="nain_se_toimii_vauhti_nayttaa_hinnan_noutoajan_ja_reitin_enne">Vauhti näyttää hinnan, noutoajan ja reitin ennen kuin vahvistat. Lopullinen summa on se, jonka näit.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="num">01</span>
+          <h3 data-cms="nain_se_toimii_syota_maaranpaa">Syötä määränpää</h3>
+          <p data-cms="nain_se_toimii_naet_kiintean_hinnan_ja_noutoajan_ennen_tilaus">Näet kiinteän hinnan ja noutoajan ennen tilausta. Valitse kyytiluokka ja maksutapa.</p>
+        </article>
+        <article class="step">
+          <span class="num">02</span>
+          <h3 data-cms="nain_se_toimii_hyvaksy_kyyti">Hyväksy kyyti</h3>
+          <p data-cms="nain_se_toimii_lahin_kuljettaja_saa_pyynnon_naet_auton_kuljet">Lähin kuljettaja saa pyynnön. Näet auton, kuljettajan arvosanan ja reitin kartalla.</p>
+        </article>
+        <article class="step">
+          <span class="num">03</span>
+          <h3 data-cms="nain_se_toimii_perilla_ilman_yllatyksia">Perillä ilman yllätyksiä</h3>
+          <p data-cms="nain_se_toimii_maksu_valitsemallasi_tavalla_kuitti_sahkoposti">Maksu valitsemallasi tavalla. Kuitti sähköpostiin ja työsuhde-edun Y-tunnus matkakuluihin.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RIDE CLASSES ================= -->
+  <section class="section" id="hinnat" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="hinnat_kyytiluokat">Kyytiluokat</span>
+        <h2 data-cms="hinnat_valitse_kyyti_joka_sopii_matkaan">Valitse kyyti, joka sopii matkaan.</h2>
+        <p data-cms="hinnat_kolme_selkeaa_vaihtoehtoa_kaikki_hinnat_ovat_k">Kolme selkeää vaihtoehtoa. Kaikki hinnat ovat kiinteitä ja sisältävät ALV 25,5 %. Esimerkkihinta välillä Kamppi–Kallio, 3,2 km.</p>
+      </div>
+      <div class="classes">
+        <article class="class-card highlight">
+          <span class="tag">Suosituin</span>
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-car"/></svg></span>
+          <h3 data-cms="hinnat_vauhti">Vauhti</h3>
+          <p data-cms="hinnat_nopea_ja_edullinen_peruskyyti_arkeen_1_4_henki">Nopea ja edullinen peruskyyti arkeen. 1–4 henkilöä.</p>
+          <div class="price"><b>12,40 €</b><span>4 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-users"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_perhe">Vauhti Perhe</h3>
+          <p data-cms="hinnat_tilava_kyyti_koko_perheelle_lastenistuin_pyynn">Tilava kyyti koko perheelle. Lastenistuin pyynnöstä.</p>
+          <div class="price"><b>15,80 €</b><span>6 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-paw"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_lemmikki">Vauhti Lemmikki</h3>
+          <p data-cms="hinnat_lemmikki_matkustaa_mukana_suojapeite_ja_hihna">Lemmikki matkustaa mukana. Suojapeite ja hihna valmiina.</p>
+          <div class="price"><b>14,60 €</b><span>5 min · 3,2 km</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APP SHOWCASE ================= -->
+  <section class="section showcase" id="sovellus">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-cms="sovellus_asiakassovellus">Asiakassovellus</span>
+        <h2 data-cms="sovellus_koko_matka_yhdessa_sovelluksessa">Koko matka yhdessä sovelluksessa.</h2>
+        <p data-cms="sovellus_20_suunniteltua_nayttoa_tilaus_kyytivalinta_ku">20 suunniteltua näyttöä: tilaus, kyytivalinta, kuljettajan seuranta, turvakeskus ja kuitti. Kaikki suomeksi kirjoitettua, ei käännettyä.</p>
+      </div>
+
+      <div class="shot-grid">
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/welcome.png" alt="Vauhti-sovelluksen tervetulonäkymä ja kielivalinta"></div>
+          <figcaption><b>Tervetuloa</b>Kieli ja ensimmäinen askel.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/home.png" alt="Vauhti-sovelluksen etusivu: määränpää, palvelut ja tallennetut osoitteet"></div>
+          <figcaption><b>Etusivu</b>Missä olet, minne menet.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/options.png" alt="Kyytivalinta: Vauhti, Vauhti Perhe ja Vauhti Lemmikki kiinteillä hinnoilla"></div>
+          <figcaption><b>Kyytivalinta</b>Hinta ennen tilausta.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/found.png" alt="Kuljettaja on matkalla: auto, rekisteritunnus ja PIN-koodi"></div>
+          <figcaption><b>Kuljettaja matkalla</b>Auto, kuljettaja ja PIN.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/ride.png" alt="Matkalla-näkymä: reitti kartalla, aika ja matkan turvatyökalut"></div>
+          <figcaption><b>Matkalla</b>Reitti ja aika koko ajan.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/receipt.png" alt="Kuitti ja arvio: hintaerittely, tippi ja kuljettajan arviointi"></div>
+          <figcaption><b>Kuitti &amp; arvio</b>Läpinäkyvä hintaerittely.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/scheduled.png" alt="Ajasta kyyti: päivä, kellonaika ja toistuva kyyti"></div>
+          <figcaption><b>Ajasta kyyti</b>Etukäteen tai toistuvasti.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/trips.png" alt="Matkahistoria: kuukauden kulut ja aiemmat matkat"></div>
+          <figcaption><b>Matkat</b>Kaikki kuitit yhdessä.</figcaption>
+        </figure>
+      </div>
+
+      <div class="showcase-cta">
+        <a class="btn btn-primary" href="demo/?screen=/home">Avaa interaktiivinen demo</a>
+        <a class="btn btn-ghost" href="demo/?screen=/index">Kaikki 20 näyttöä</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAFETY ================= -->
+  <section class="section" id="turvallisuus">
+    <div class="wrap safety-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:28px">
+          <span class="eyebrow" data-cms="turvallisuus_turvallisuus">Turvallisuus</span>
+          <h2 data-cms="turvallisuus_turva_ei_ole_piilossa">Turva ei ole piilossa.</h2>
+          <p data-cms="turvallisuus_jokaisessa_kyydissa_on_samat_tyokalut_matkan_j">Jokaisessa kyydissä on samat työkalut: matkan jakaminen, reitin tarkistus ja hätäpainike. Ne löytyvät aina yhdellä napautuksella.</p>
+        </div>
+        <div class="safety-list">
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div><h3 data-cms="turvallisuus_jaa_matka_laheiselle">Jaa matka läheiselle</h3><p data-cms="turvallisuus_laheta_reitti_ja_arvioitu_perilletulo_yhdella">Lähetä reitti ja arvioitu perilletulo yhdellä viestillä. Seuranta päättyy automaattisesti perillä.</p></div>
+          </article>
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg></span>
+            <div><h3 data-cms="turvallisuus_tarkista_reitti">Tarkista reitti</h3><p data-cms="turvallisuus_naet_poikkesiko_kuljettaja_reitilta_tarvittaes">Näet poikkesiko kuljettaja reitiltä. Tarvittaessa soitat kuljettajalle tai tukeen suoraan sovelluksesta.</p></div>
+          </article>
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <div><h3 data-cms="turvallisuus_hatapainike">Hätäpainike</h3><p data-cms="turvallisuus_soitto_hatanumeroon_112_ja_sijaintisi_valittyy">Soitto hätänumeroon 112 ja sijaintisi välittyy. Vauhti näyttää kuljettajan tiedot ja matkan tilan.</p></div>
+          </article>
+        </div>
+      </div>
+      <div class="safety-media">
+        <div class="phone"><img src="assets/shots/safety.png" alt="Turvakeskus: hätätilanne, matkan jakaminen, matkakoodi ja turvakontaktit"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DRIVER ================= -->
+  <section class="section driver" id="kuljettajalle">
+    <div class="wrap driver-grid">
+      <div>
+        <span class="eyebrow on-dark" data-cms="kuljettajalle_kuljettajille">Kuljettajille</span>
+        <h2 data-cms="kuljettajalle_reilu_tapa_ajaa_taksia">Reilu tapa<br><em>ajaa taksia.</em></h2>
+        <p class="lead" data-cms="kuljettajalle_vauhti_on_kotimainen_palvelu_jonka_komissio_on">Vauhti on kotimainen palvelu, jonka komissio on vain 5 % — sinä pidät 95 % jokaisesta kyydistä.</p>
+
+        <div class="driver-stats">
+          <div class="driver-stat"><b>5 %</b><span>Komissio</span></div>
+          <div class="driver-stat"><b>95 %</b><span>Kuljettajalle</span></div>
+          <div class="driver-stat"><b>0 €</b><span>Aloitusmaksu</span></div>
+        </div>
+
+        <ul class="benefits">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Vain 5 % välityspalkkio — ei aloitusmaksua eikä piilovähennyksiä.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> 95 % jokaisesta kyydistä jää sinulle.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Viikon tavoitebonukset ja läpinäkyvä tilitys.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Tuki suomeksi 24/7 ja turvapainike myös kuljettajalle.</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:kuljettajat@vauhti.fi?subject=Hakemus%20Vauhti-kuljettajaksi">Hae kuljettajaksi</a>
+          <a class="btn btn-ghost" href="demo/?screen=/driver-home">Katso kuljettajasovellus</a>
+        </div>
+        <p class="driver-note" data-cms="kuljettajalle_edellytykset_vahintaan_21_vuotta_voimassa_olev">Edellytykset: vähintään 21 vuotta, voimassa oleva ajokortti, taksinkuljettajan ajolupa ja hyväksytty taustatarkistus.</p>
+      </div>
+
+      <div class="driver-media">
+        <div class="phone driver-phone-back"><img src="assets/shots/driver-offer.png" alt="Kuljettajan saapuva kyytipyyntö" ></div>
+        <div class="phone"><img src="assets/shots/driver-earnings.png" alt="Kuljettajasovellus: viikon ansiot, bonukset ja seuraava tilitys"></div>
+        <div class="driver-float">
+          <span class="lead" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--brand-50);color:var(--brand-800)"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <div><b>328,40 €</b><span>Seuraava maksu · ma 16.11.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DRIVER APP SHOWCASE ================= -->
+  <section class="section driver-app" id="kuljettajasovellus">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="kuljettajasovellus_kuljettajasovellus">Kuljettajasovellus</span>
+        <h2 data-cms="kuljettajasovellus_koko_tyopaiva_yhdella_ruudulla">Koko työpäivä yhdellä ruudulla.</h2>
+        <p data-cms="kuljettajasovellus_kyytipyynnot_navigointi_matkakoodi_ja_ansiot_t">Kyytipyynnöt, navigointi, matkakoodi ja ansiot. Tumma käyttöliittymä auton telineeseen, suuret kosketusalueet ja tilitys aina näkyvissä.</p>
+      </div>
+
+      <div class="shot-grid driver-shots">
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/driver-home.png" alt="Kuljettajan etusivu: päivän ansiot, hyväksymisaste ja viikon tavoite"></div>
+          <figcaption><b>Työpäivä</b>Ansiot ja tavoite heti avattaessa.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/driver-offer.png" alt="Saapuva kyytipyyntö: nouto, määränpää, hinta ja hyväksyminen"></div>
+          <figcaption><b>Kyytipyyntö</b>Nouto, määränpää ja hinta.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/driver-nav.png" alt="Navigointi noutopaikalle: käännös, etäisyys ja asiakkaan tiedot"></div>
+          <figcaption><b>Noutopaikalle</b>Käännökset ja asiakas.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="assets/shots/driver-earnings.png" alt="Ansiot: viikon tilitys, bonukset, tipit ja seuraava maksu"></div>
+          <figcaption><b>Ansiot</b>Läpinäkyvä viikkotilitys.</figcaption>
+        </figure>
+      </div>
+
+      <div class="showcase-cta">
+        <a class="btn btn-primary" href="demo/?screen=/driver-home">Avaa kuljettajademo</a>
+        <a class="btn btn-outline" href="mailto:kuljettajat@vauhti.fi?subject=Hakemus%20Vauhti-kuljettajaksi">Hae kuljettajaksi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUSINESS ================= -->
+  <section class="business" id="yrityksille">
+    <div class="wrap">
+      <div>
+        <h2 data-cms="yrityksille_yrityksille_ja_tyomatkoihin">Yrityksille ja työmatkoihin</h2>
+        <p data-cms="yrityksille_tyosuhde_edut_keskitetty_laskutus_ja_matkakulu">Työsuhde-edut, keskitetty laskutus ja matkakulut Y-tunnuksella. Vauhti sopii tiimeille, jotka liikkuvat kaupungissa joka päivä.</p>
+      </div>
+      <a class="btn btn-dark" href="mailto:myynti@vauhti.fi?subject=Vauhti%20yrityksille">Pyydä tarjous</a>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="ukk">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-cms="ukk_usein_kysytyt">Usein kysytyt</span>
+        <h2 data-cms="ukk_vastaukset_ennen_kyytia">Vastaukset ennen kyytiä.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary data-cms="ukk_miten_kiintea_hinta_toimii">Miten kiinteä hinta toimii?</summary>
+          <p data-cms="ukk_naet_lopullisen_hinnan_ennen_kuin_vahvistat_ti">Näet lopullisen hinnan ennen kuin vahvistat tilauksen. Hinta ei muutu matkan aikana, vaikka liikenne hidastuisi. Mahdollinen ruuhkakorotus kerrotaan aina etukäteen.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_paljonko_vauhti_ottaa_komissiota">Paljonko Vauhti ottaa komissiota?</summary>
+          <p data-cms="ukk_vain_5_kuljettaja_pitaa_95_jokaisesta_kyydista">Vain 5 %. Kuljettaja pitää 95 % jokaisesta kyydistä. Aloitusmaksu on 0 € eikä piilovähennyksiä ole.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_mitka_kyytiluokat_ovat_tarjolla">Mitkä kyytiluokat ovat tarjolla?</summary>
+          <p data-cms="ukk_vauhti_vauhti_perhe_ja_vauhti_lemmikki_vauhti">Vauhti, Vauhti Perhe ja Vauhti Lemmikki. Vauhti on nopea peruskyyti, Perhe on tilava kyyti lastenistuimella ja Lemmikki ottaa lemmikin mukaan.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_mita_jos_minun_pitaa_peruuttaa_kyyti">Mitä jos minun pitää peruuttaa kyyti?</summary>
+          <p data-cms="ukk_voit_peruuttaa_ilman_kuluja_kunnes_kuljettaja">Voit peruuttaa ilman kuluja, kunnes kuljettaja on lähtenyt liikkeelle. Tämän jälkeen peruutusmaksu on 5 minuuttia ja se näytetään aina ennen vahvistusta.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_miten_turvallisuus_varmistetaan">Miten turvallisuus varmistetaan?</summary>
+          <p data-cms="ukk_jokaisella_kuljettajalla_on_taustatarkistus_ta">Jokaisella kuljettajalla on taustatarkistus, taksinkuljettajan ajolupa ja jatkuva arviointi. Sovelluksessa voit jakaa matkan, tarkistaa reitin ja soittaa hätänumeroon yhdellä napautuksella.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_voinko_maksaa_tyosuhde_edulla">Voinko maksaa työsuhde-edulla?</summary>
+          <p data-cms="ukk_kylla_vauhti_tukee_yleisimpia_tyosuhde_etukort">Kyllä. Vauhti tukee yleisimpiä työsuhde-etukortteja ja keskitettyä laskutusta. Kuittiin saa Y-tunnuksen ja erittelyn matkakuluista.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_miten_haen_kuljettajaksi">Miten haen kuljettajaksi?</summary>
+          <p data-cms="ukk_laheta_hakemus_osoitteeseen_kuljettajat_vauhti">Lähetä hakemus osoitteeseen kuljettajat@vauhti.fi. Tarvitset vähintään 21 vuoden iän, voimassa olevan ajokortin, taksinkuljettajan ajoluvan ja hyväksytyn taustatarkistuksen.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_missa_vauhti_toimii">Missä Vauhti toimii?</summary>
+          <p data-cms="ukk_vauhti_toimii_talla_hetkella_helsingissa_tampe">Vauhti toimii tällä hetkellä Helsingissä, Tampereella ja Turussa. Laajennamme seuraavaksi Espooseen, Vantaalle ja Ouluun.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOWNLOAD ================= -->
+  <section class="section download" id="lataa">
+    <div class="wrap download-grid">
+      <div>
+        <span class="eyebrow on-dark" data-cms="lataa_lataa_sovellus">Lataa sovellus</span>
+        <h2 data-cms="lataa_kaupunki_on_lahella">Kaupunki on lähellä.</h2>
+        <p data-cms="lataa_lataa_vauhti_ja_tilaa_ensimmainen_kyyti_kiinte">Lataa Vauhti ja tilaa ensimmäinen kyyti. Kiinteä hinta ennen kyytiä, suomalainen tuki ja reilu 5 % komissio.</p>
+        <div class="store-buttons">
+          <a class="store-btn" href="demo/?screen=/welcome">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.4 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7c1.2 0 1.9-1.1 2.6-2.2.8-1.2 1.2-2.4 1.2-2.5 0 0-2.1-.8-2.1-3.6Z"/><path d="M14.2 5.9c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2Z"/></svg>
+            <span><span>Lataa</span><b>App Storesta</b></span>
+          </a>
+          <a class="store-btn" href="https://github.com/jaervis/vauhti-app/releases/download/v1.0.0/vauhti-1.0.0.apk" download>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.6 2.9 14.8 13 4.6 23.1c-.3-.2-.5-.6-.5-1V3.9c0-.4.2-.8.5-1Z" fill="currentColor" opacity=".9"/><path d="m16.6 14.8 3.1 1.7c.7.4.7 1.4 0 1.8l-3.1 1.7-2.4-2.6 2.4-2.6Z" fill="currentColor" opacity=".55"/><path d="m16.6 9.2 3.1-1.7c.7-.4.7-1.4 0-1.8l-3.1-1.7-2.4 2.6 2.4 2.6Z" fill="currentColor" opacity=".55"/><path d="M14.8 13 4.6 2.9c.3-.2.7-.2 1.1 0l11.1 6.1-2 4Z" fill="currentColor" opacity=".75"/></svg>
+            <span><span>Lataa</span><b>Android-APK</b></span>
+          </a>
+        </div>
+        <p class="tiny" style="margin-top:14px;color:rgba(255,255,255,.42)">Demo: APK asentuu Android 7.0+ -laitteille. iOS-versio ja sovelluskaupat avautuvat julkaisussa — kokeile selainversiota nyt.</p>
+      </div>
+      <div class="download-media">
+        <div class="phone"><img src="assets/shots/home.png" alt="Vauhti-sovelluksen etusivu"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Vauhti etusivu">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="19" fill="#00C2A8"/>
+            <path d="M18 21 32 44 46 21" fill="none" stroke="#0A1020" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="18" cy="21" r="4.2" fill="#0A1020"/><circle cx="46" cy="21" r="4.2" fill="#fff"/>
+          </svg>
+          <span>vauhti<span class="dot">.</span></span>
+        </a>
+        <p data-cms="footer_kotimainen_taksipalvelu_jonka_komissio_on_vain">Kotimainen taksipalvelu, jonka komissio on vain 5 %. Turvallinen, nopea ja helppo tapa tilata taksi.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Vauhti</h3>
+        <a href="#kyyti">Tilaa kyyti</a>
+        <a href="#reiluus">Reiluus</a>
+        <a href="#hinnat">Kyytiluokat</a>
+        <a href="#turvallisuus">Turvallisuus</a>
+        <a href="#sovellus">Sovellus</a>
+        <a href="v1/">Aiempi versio</a>
+      </div>
+      <div class="footer-col">
+        <h3>Kuljettajille</h3>
+        <a href="#kuljettajalle">Aja Vauhtia</a>
+        <a href="#kuljettajasovellus">Kuljettajasovellus</a>
+        <a href="#kuljettajalle">Ansiot ja bonukset</a>
+        <a href="mailto:kuljettajat@vauhti.fi">kuljettajat@vauhti.fi</a>
+      </div>
+      <div class="footer-col">
+        <h3>Yrityksille</h3>
+        <a href="#yrityksille">Työsuhde-edut</a>
+        <a href="#yrityksille">Keskitetty laskutus</a>
+        <a href="mailto:myynti@vauhti.fi">myynti@vauhti.fi</a>
+        <a href="#ukk">Apua ja tuki</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vauhti Oy · Y-tunnus 1234567-8 · Helsinki</span>
+      <div class="lang" role="group" aria-label="Kieli">
+        <a href="./" aria-current="true">FI</a>
+        <a href="en/" lang="en" hreflang="en">EN</a>
+        <a href="it/" lang="it" hreflang="it">IT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile navigation
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.nav-toggle');
+  toggle?.addEventListener('click', () => {
+    const open = header.dataset.open === 'true';
+    header.dataset.open = String(!open);
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+  document.querySelectorAll('.nav-links a').forEach((a) =>
+    a.addEventListener('click', () => {
+      header.dataset.open = 'false';
+      toggle?.setAttribute('aria-expanded', 'false');
+    })
+  );
+
+  // Booking: ride class selection updates the CTA price
+  const total = document.getElementById('book-total');
+  document.querySelectorAll('.ride-option').forEach((option) => {
+    option.addEventListener('click', () => {
+      document.querySelectorAll('.ride-option').forEach((o) => o.setAttribute('aria-pressed', 'false'));
+      option.setAttribute('aria-pressed', 'true');
+      if (total) total.textContent = option.dataset.price;
+    });
+  });
+</script>
+  <script src="/assets/kiln-config.js"></script>
+  <script src="/assets/kiln.js" defer></script>
+</body>
+</html>

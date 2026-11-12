@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 420" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Kartta, Helsinki">
+<rect width="390" height="420" fill="#EDF1EF"/>
+<ellipse cx="62" cy="300" rx="62" ry="46" fill="#DFEBDC"/>
+<path d="M232 350q34-14 52 4t-4 44q-30 12-50-4t2-44Z" fill="#E3EEDF"/>
+<path d="M150 24q26-10 40 4t-2 34q-24 8-40-4t2-34Z" fill="#E4EFE1"/>
+<g stroke="#F8FAF9" stroke-width="6" stroke-linecap="round"><path d="M-10 60H400M-10 152H400M-10 200H400M-10 262H400M-10 386H400"/><path d="M42 -10V430M170 -10V430M232 -10V430M292 -10V430M348 -10V430"/></g>
+<g stroke="#fff" stroke-linecap="round" fill="none"><path d="M-10 112C84 121 152 100 240 114S342 136 400 128" stroke-width="13"/><path d="M104 -10 96 430" stroke-width="13"/><path d="M-10 320C112 306 220 338 400 312" stroke-width="13"/><path d="M2 420 382 178" stroke-width="10"/><path d="M200 430C216 350 190 250 210 170S244 60 236 -10" stroke-width="9"/></g>
+<path d="M332-10 420-10 420 430 292 430C322 366 300 300 330 240 354 190 318 108 332-10Z" fill="#D8E6EC"/>
+<path d="M332-10C318 108 354 190 330 240 300 300 322 366 292 430" fill="none" stroke="#C6DAE2" stroke-width="2"/>
+<g stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M316 252h44M310 300h34M320 350h40"/></g>
+<path d="M118 344 L118 298 Q118 279 137 275 L206 266 Q227 263 234 245 L246 199 Q250 181 267 174 L302 159 Q318 152 322 137" fill="none" stroke="#fff" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M118 344 L118 298 Q118 279 137 275 L206 266 Q227 263 234 245 L246 199 Q250 181 267 174 L302 159 Q318 152 322 137" fill="none" stroke="#00C2A8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(176 236)"><circle r="15" fill="#fff" opacity=".96"/><circle r="15" fill="none" stroke="#0A1020" stroke-opacity=".07"/><g transform="rotate(195)"><path d="M0 -7.5 6.4 7.2 0 4.1 -6.4 7.2Z" fill="#0A1020"/></g></g><g transform="translate(322 137)"><circle r="15" fill="#0A1020"/><circle r="15" fill="none" stroke="#fff" stroke-width="3.5"/><circle r="5" fill="#00C2A8"/></g><circle cx="118" cy="344" r="8.5" fill="#0A1020" stroke="#fff" stroke-width="3.2"/>
+</svg>
