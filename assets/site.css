@@ -479,3 +479,4 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing:
 /* Selected-ride badge follows the page language. */
 html[lang="en"] .ride-option[aria-pressed="true"] .name::after { content: "Fastest"; }
 html[lang="it"] .ride-option[aria-pressed="true"] .name::after { content: "Più veloce"; }
+html[lang="sv"] .ride-option[aria-pressed="true"] .name::after { content: "Snabbast"; }

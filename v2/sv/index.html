@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!-- Vauhti website, version 2: reiluus-edellä ja kolme kyytiluokkaa. Ensimmäinen luonnos: ../website-v1/ -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vauhti — Ett rättvist sätt att boka taxi.</title>
+<meta name="description" content="Vauhti är en inhemsk taxitjänst med bara 5 % provision. Ett säkert, snabbt och enkelt sätt att boka taxi. Ett rättvist sätt att köra taxi.">
+<meta name="theme-color" content="#0A1020">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vauhti — Ett rättvist sätt att boka taxi.">
+<meta property="og:description" content="Taxibranschen har stått på ohållbar grund. Vauhti är det inhemska, rättvisa alternativet: 5 % provision, föraren behåller 95 % och kunden ser ett fast pris före resan.">
+<meta property="og:image" content="../assets/shots/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="it_IT">
+<link rel="canonical" href="https://vauhti-app.pages.dev/v2/sv/">
+<link rel="alternate" hreflang="fi" href="https://vauhti-app.pages.dev/v2/">
+<link rel="alternate" hreflang="en" href="https://vauhti-app.pages.dev/v2/en/">
+<link rel="alternate" hreflang="sv" href="https://vauhti-app.pages.dev/v2/sv/">
+<link rel="alternate" hreflang="it" href="https://vauhti-app.pages.dev/v2/it/">
+<link rel="alternate" hreflang="x-default" href="https://vauhti-app.pages.dev/v2/">
+<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/fonts.css?v=1">
+<link rel="stylesheet" href="../assets/tokens.css?v=1">
+<link rel="stylesheet" href="../assets/site.css?v=6">
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Gå till innehållet</a>
+
+<!-- Icon sprite (paths from the Vauhti icon set) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.8 16.2v-3.4c0-.5.2-.9.6-1.2l1.7-1.4 1.3-2.3A2 2 0 0 1 9.2 7h5.6a2 2 0 0 1 1.7 1l1.4 2.3 1.7 1.4c.4.3.6.7.6 1.2v3.3"/>
+    <path d="M3.8 16.2h16.4"/><path d="M4.5 16.2v1.6M19.5 16.2v1.6"/>
+    <circle cx="7.4" cy="16.3" r="1.7"/><circle cx="16.6" cy="16.3" r="1.7"/>
+    <path d="M9.2 10.4h5.6"/><path d="M6.2 12.6h11.6"/>
+  </symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.4 3.6C11.6 3 4.4 9.7 6.2 17.8c8.1 1.8 14.8-5.4 14.2-14.2Z"/>
+    <path d="M7.4 16.6C9 12.4 12 9.1 16.6 7"/>
+  </symbol>
+  <symbol id="i-van" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.8 16.6V9.2c0-.7.5-1.2 1.2-1.2h9.6l4 3.3 3.1 1.1c.4.2.6.5.6.9v3.3"/>
+    <path d="M2.8 16.6h18.5"/><circle cx="7" cy="16.8" r="1.8"/><circle cx="17" cy="16.8" r="1.8"/>
+    <path d="M4 16.8v1.4M20 16.8v1.4"/><path d="M13.4 8v4.4h7.4"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.8 4.8 5.7v5.7c0 4.6 3 8.6 7.2 10.1 4.2-1.5 7.2-5.5 7.2-10.1V5.7L12 2.8Z"/>
+    <path d="m8.8 11.8 2.2 2.2 4.4-4.4"/>
+  </symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.2 8.6V6.8a2 2 0 0 0-2-2H4.8a2 2 0 0 0-2 2v10.4a2 2 0 0 0 2 2h13.4a2 2 0 0 0 2-2v-1.8"/>
+    <path d="M21.2 8.6h-5.4a2.7 2.7 0 0 0 0 5.4h5.4Z"/>
+  </symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13.4 2.8 4.8 13.6h6l-1.4 7.6 8.6-10.8h-6l1.4-7.6Z"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.6 2.2"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.4 3h2.9l1.5 4-2 1.5a12.4 12.4 0 0 0 5.7 5.7l1.5-2 4 1.5v2.9a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.2 2 2 0 0 1 6.4 3Z"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="8.2" r="3.8"/><path d="M2.4 20.4c.5-3.6 3.3-5.8 6.6-5.8s6.1 2.2 6.6 5.8"/>
+    <path d="M16.2 5.1a3.8 3.8 0 0 1 0 7.4M17.6 14.9c2.4.5 3.9 2.4 4.2 5.1"/>
+  </symbol>
+  <symbol id="i-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="16.4" rx="4.6" ry="3.6"/>
+    <circle cx="6.2" cy="11.6" r="1.7"/><circle cx="9.8" cy="8.4" r="1.7"/>
+    <circle cx="14.2" cy="8.4" r="1.7"/><circle cx="17.8" cy="11.6" r="1.7"/>
+  </symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.8" y="5.4" width="18.4" height="13.2" rx="2.4"/><path d="M2.8 10h18.4"/><path d="M6.6 14.6h3.2"/>
+  </symbol>
+  <symbol id="i-work" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="7.5" width="18" height="12.5" rx="2"/>
+    <path d="M9 7.5V5.8c0-.7.6-1.3 1.3-1.3h3.4c.7 0 1.3.6 1.3 1.3v1.7"/>
+    <path d="M3 12.4h18"/><path d="M10.4 12.4v2.2h3.2v-2.2"/>
+  </symbol>
+  <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="5.4" cy="5.4" r="2.6"/><circle cx="18.6" cy="18.6" r="2.6"/>
+    <path d="M8 5.4h6.4a4 4 0 0 1 0 8H9.6a4 4 0 0 0 0 8H16"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m4.5 12.5 5 5L20 6.8"/>
+  </symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.2" y="5" width="17.6" height="16" rx="2.6"/>
+    <path d="M3.2 10h17.6M8 2.8v4.4M16 2.8v4.4"/><path d="M7.6 14h2M11 14h2M14.4 14h2M7.6 17.4h2M11 17.4h2"/>
+  </symbol>
+</svg>
+
+<header class="site-header" data-open="false">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Vauhti startsida">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="19" fill="#00C2A8"/>
+        <path d="M18 21 32 44 46 21" fill="none" stroke="#0A1020" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="18" cy="21" r="4.2" fill="#0A1020"/><circle cx="46" cy="21" r="4.2" fill="#fff"/>
+      </svg>
+      <span>vauhti<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Huvudmeny">
+      <a href="#kyyti">Resa</a>
+      <a href="#reiluus">Rättvisa</a>
+      <a href="#hinnat">Reseklasser</a>
+      <a href="#turvallisuus">Säkerhet</a>
+      <a href="#kuljettajalle">För förare</a>
+      <a href="#yrityksille">För företag</a>
+      <a href="#ukk">Hjälp</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Språk">
+          <a href="../" lang="fi" hreflang="fi">FI</a>
+          <a href="../" aria-current="true">SV</a>
+          <a href="../en/" lang="en" hreflang="en">EN</a>
+          <a href="../it/" lang="it" hreflang="it">IT</a>
+        </div>
+      <a class="nav-login" href="#lataa">Logga in</a>
+      <a class="btn btn-primary btn-sm" href="#lataa">Ladda ner appen</a>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="top" aria-label="Öppna menyn">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="kyyti">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow on-dark" data-cms="kyyti_inhemsk_taxitjanst_5_provision">Inhemsk taxitjänst · 5 % provision</span>
+        <h1 data-cms="kyyti_ett_rattvist_satt_att_boka_taxi">Ett rättvist sätt<br><em>att boka taxi.</em></h1>
+        <p class="hero-sub" data-cms="kyyti_taxibranschen_i_finland_har_statt_pa_ohallbar">Taxibranschen i Finland har stått på ohållbar grund. Vauhti är det inhemska, rättvisa alternativet: ett säkert, snabbt och enkelt sätt att boka taxi — och ett rättvist sätt att köra taxi. Föraren betalar bara 5&nbsp;% i provision.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kyyti">Boka resa</a>
+          <a class="btn btn-ghost" href="#kuljettajalle">Kör med Vauhti</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>5 %</b><span>Provision</span></div>
+          <div><b>3 min</b><span>Genomsnittlig upphämtning</span></div>
+          <div><b>4,92 ★</b><span>Förarbetyg</span></div>
+        </div>
+      </div>
+
+      <div class="book-card" aria-label="Boka resa">
+        <div class="book-head">
+          <h2 data-cms="kyyti_vart_ska_vi">Vart ska vi?</h2>
+          <span class="book-badge"><svg class="ico" style="width:14px;height:14px" aria-hidden="true"><use href="#i-bolt"/></svg> Fast pris</span>
+        </div>
+
+        <div class="field">
+          <span class="dot" aria-hidden="true"></span>
+          <input value="Nuvarande plats" aria-label="Upphämtning">
+        </div>
+        <div class="field">
+          <svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>
+          <input value="Kallio, Helsinki" aria-label="Destination">
+        </div>
+
+        <div class="ride-list" role="group" aria-label="Reseklass">
+          <button class="ride-option" type="button" data-price="12,40 €" aria-pressed="true">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>
+            <span class="grow"><span class="name">Vauhti</span><span class="ride-fastest">Snabbast</span><span class="meta">4 min · 1–4 personer</span></span>
+            <span class="price"><b>12,40 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="15,80 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Perhe</span><span class="meta">6 min · barnstol</span></span>
+            <span class="price"><b>15,80 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="14,60 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Lemmikki</span><span class="meta">5 min · husdjur med</span></span>
+            <span class="price"><b>14,60 €</b><span>3,2 km</span></span>
+          </button>
+        </div>
+
+        <div class="book-pay">
+          <span class="pay-left"><svg class="ico" style="width:18px;height:18px" aria-hidden="true"><use href="#i-card"/></svg> Visa •• 4242</span>
+          <a class="link" href="#ukk">Ändra</a>
+        </div>
+
+        <a class="btn btn-primary btn-block" ../../demo/?screen=/options">Boka resa · <span id="book-total">12,40 €</span></a>
+        <p class="tiny muted" style="margin-top:10px;text-align:center" data-cms="kyyti_priset_inkluderar_moms_25_5_inga_dolda_avgifte">Priset inkluderar moms 25,5 %. Inga dolda avgifter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST ================= -->
+  <div class="trust-strip" aria-label="Vauhti i siffror">
+    <div class="wrap trust-grid">
+      <div class="trust-item"><b>95 %</b><span>Stannar hos föraren</span></div>
+      <div class="trust-item"><b>0 €</b><span>Startavgift</span></div>
+      <div class="trust-item"><b>3</b><span>Tydliga reseklasser</span></div>
+      <div class="trust-item"><b>24/7</b><span>Support på finska</span></div>
+    </div>
+  </div>
+
+  <!-- ================= FAIR ALTERNATIVE ================= -->
+  <section class="section fair" id="reiluus">
+    <div class="wrap fair-grid">
+      <div class="fair-copy">
+        <span class="eyebrow on-dark" data-cms="reiluus_det_rattvisa_alternativet">Det rättvisa alternativet</span>
+        <h2 data-cms="reiluus_taxibranschen_har_statt_pa_ohallbar_grund">Taxibranschen har<br><em>stått på ohållbar grund.</em></h2>
+        <p class="lead" data-cms="reiluus_vauhti_ger_marknaden_ett_rattvist_alternativ_e">Vauhti ger marknaden ett rättvist alternativ: en inhemsk tjänst med bara 5 % provision. Föraren behåller 95 % av varje resa.</p>
+        <p class="fair-claim" data-cms="reiluus_ett_sakert_snabbt_och_enkelt_satt_att_boka_tax">Ett säkert, snabbt och enkelt sätt att boka taxi.<br><span>Ett rättvist sätt att köra taxi.</span></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" ../../demo/?screen=/home">Boka resa</a>
+          <a class="btn btn-ghost" href="#kuljettajalle">Bli förare</a>
+        </div>
+      </div>
+
+      <div class="fair-panel" aria-label="Vart resepriset går">
+        <div class="fair-panel-head">
+          <span class="tiny">Exempel: en resa för 20 €</span>
+          <b>Vart tar pengarna vägen?</b>
+        </div>
+        <div class="fair-split" aria-hidden="true"><span></span></div>
+        <div class="fair-rows">
+          <div class="fair-row"><span>Till föraren</span><b>19,00 €</b></div>
+          <div class="fair-row"><span>Vauhti · 5 %</span><b>1,00 €</b></div>
+          <div class="fair-row muted"><span>Startavgift</span><b>0,00 €</b></div>
+        </div>
+        <p class="fair-note" data-cms="reiluus_inga_dolda_avgifter_inga_ovantade_avdrag_forar">Inga dolda avgifter. Inga oväntade avdrag. Föraren behåller 95 % av varje resa.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="nain-se-toimii">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="nain_se_toimii_sa_fungerar_det">Så fungerar det</span>
+        <h2 data-cms="nain_se_toimii_tre_steg_inga_overraskningar">Tre steg. Inga överraskningar.</h2>
+        <p data-cms="nain_se_toimii_vauhti_visar_pris_upphamtningstid_och_rutt_inn">Vauhti visar pris, upphämtningstid och rutt innan du bekräftar. Slutsumman är den du såg.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="num">01</span>
+          <h3 data-cms="nain_se_toimii_ange_destination">Ange destination</h3>
+          <p data-cms="nain_se_toimii_du_ser_fast_pris_och_upphamtningstid_fore_bokn">Du ser fast pris och upphämtningstid före bokning. Välj reseklass och betalsätt.</p>
+        </article>
+        <article class="step">
+          <span class="num">02</span>
+          <h3 data-cms="nain_se_toimii_acceptera_resa">Acceptera resa</h3>
+          <p data-cms="nain_se_toimii_narmaste_forare_far_forfragan_du_ser_bilen_for">Närmaste förare får förfrågan. Du ser bilen, förarens betyg och rutten på kartan.</p>
+        </article>
+        <article class="step">
+          <span class="num">03</span>
+          <h3 data-cms="nain_se_toimii_framme_utan_overraskningar">Framme utan överraskningar</h3>
+          <p data-cms="nain_se_toimii_betalning_pa_ditt_satt_kvitto_via_e_post_och_f">Betalning på ditt sätt. Kvitto via e-post och FO-nummer för resekostnader.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RIDE CLASSES ================= -->
+  <section class="section" id="hinnat" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="hinnat_reseklasser">Reseklasser</span>
+        <h2 data-cms="hinnat_valj_resan_som_passar">Välj resan som passar.</h2>
+        <p data-cms="hinnat_tre_tydliga_alternativ_alla_priser_ar_fasta_oc">Tre tydliga alternativ. Alla priser är fasta och inkluderar moms 25,5 %. Exempelpris Kamppi–Kallio, 3,2 km.</p>
+      </div>
+      <div class="classes">
+        <article class="class-card highlight">
+          <span class="tag">Populärast</span>
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-car"/></svg></span>
+          <h3 data-cms="hinnat_vauhti">Vauhti</h3>
+          <p data-cms="hinnat_snabb_och_prisvard_vardagsresa_1_4_personer">Snabb och prisvärd vardagsresa. 1–4 personer.</p>
+          <div class="price"><b>12,40 €</b><span>4 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-users"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_perhe">Vauhti Perhe</h3>
+          <p data-cms="hinnat_rymlig_resa_for_hela_familjen_barnstol_pa_bega">Rymlig resa för hela familjen. Barnstol på begäran.</p>
+          <div class="price"><b>15,80 €</b><span>6 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-paw"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_lemmikki">Vauhti Lemmikki</h3>
+          <p data-cms="hinnat_husdjuret_foljer_med_skydd_och_koppel_finns">Husdjuret följer med. Skydd och koppel finns.</p>
+          <div class="price"><b>14,60 €</b><span>5 min · 3,2 km</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APP SHOWCASE ================= -->
+  <section class="section showcase" id="sovellus">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-cms="sovellus_kundapp">Kundapp</span>
+        <h2 data-cms="sovellus_hela_resan_i_en_app">Hela resan i en app.</h2>
+        <p data-cms="sovellus_20_designade_skarmar_bokning_reseval_forarspar">20 designade skärmar: bokning, reseval, förarspårning, trygghetscenter och kvitto. Skrivna på finska först, inte översatta.</p>
+      </div>
+
+      <div class="shot-grid">
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/welcome.png" alt="Vauhti-appens välkomstskärm med språkval"></div>
+          <figcaption><b>Välkommen</b>Språk och första steget.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/home.png" alt="Vauhti-appens startsida: destination, tjänster och sparade adresser"></div>
+          <figcaption><b>Hem</b>Var du är, vart du ska.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/options.png" alt="Reseval: Vauhti, Vauhti Perhe och Vauhti Lemmikki med fasta priser"></div>
+          <figcaption><b>Reseval</b>Pris före bokning.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/found.png" alt="Föraren är på väg: bil, registreringsnummer och PIN"></div>
+          <figcaption><b>Föraren är på väg</b>Bil, förare och PIN.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/ride.png" alt="Under resa: rutt på kartan, tid och säkerhetsverktyg"></div>
+          <figcaption><b>Under resa</b>Rutt och tid hela vägen.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/receipt.png" alt="Kvitto och betyg: prisspecifikation, dricks och förarens betyg"></div>
+          <figcaption><b>Kvitto &amp; betyg</b>Transparent prisspecifikation.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/scheduled.png" alt="Boka resa: dag, tid och återkommande resa"></div>
+          <figcaption><b>Boka resa</b>I förväg eller återkommande.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/trips.png" alt="Resehistorik: månadens kostnader och tidigare resor"></div>
+          <figcaption><b>Resor</b>Alla kvitton samlade.</figcaption>
+        </figure>
+      </div>
+
+      <div class="showcase-cta">
+        <a class="btn btn-primary" ../../demo/?screen=/home">Öppna den interaktiva demon</a>
+        <a class="btn btn-ghost" ../../demo/?screen=/index">Alla 20 skärmar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAFETY ================= -->
+  <section class="section" id="turvallisuus">
+    <div class="wrap safety-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:28px">
+          <span class="eyebrow" data-cms="turvallisuus_sakerhet">Säkerhet</span>
+          <h2 data-cms="turvallisuus_sakerheten_ar_inte_dold">Säkerheten är inte dold.</h2>
+          <p data-cms="turvallisuus_varje_resa_har_samma_verktyg_resedelning_ruttk">Varje resa har samma verktyg: resedelning, ruttkontroll och nödknapp. Alltid ett tryck bort.</p>
+        </div>
+        <div class="safety-list">
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div><h3 data-cms="turvallisuus_dela_resan_med_en_narstaende">Dela resan med en närstående</h3><p data-cms="turvallisuus_skicka_rutt_och_beraknad_ankomst_i_ett_meddela">Skicka rutt och beräknad ankomst i ett meddelande. Spårningen slutar automatiskt vid framkomst.</p></div>
+          </article>
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg></span>
+            <div><h3 data-cms="turvallisuus_kontrollera_rutten">Kontrollera rutten</h3><p data-cms="turvallisuus_se_om_foraren_lamnade_rutten_vid_behov_ringer">Se om föraren lämnade rutten. Vid behov ringer du föraren eller supporten direkt i appen.</p></div>
+          </article>
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <div><h3 data-cms="turvallisuus_nodknapp">Nödknapp</h3><p data-cms="turvallisuus_samtal_till_112_och_din_plats_delas_vauhti_vis">Samtal till 112 och din plats delas. Vauhti visar förarens uppgifter och resans status.</p></div>
+          </article>
+        </div>
+      </div>
+      <div class="safety-media">
+        <div class="phone"><img src="../assets/shots/safety.png" alt="Trygghetscenter: nödläge, resedelning, resekod och trygghetskontakter"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DRIVER ================= -->
+  <section class="section driver" id="kuljettajalle">
+    <div class="wrap driver-grid">
+      <div>
+        <span class="eyebrow on-dark" data-cms="kuljettajalle_for_forare">För förare</span>
+        <h2 data-cms="kuljettajalle_ett_rattvist_satt_att_kora_taxi">Ett rättvist sätt<br><em>att köra taxi.</em></h2>
+        <p class="lead" data-cms="kuljettajalle_vauhti_ar_en_finlandsk_tjanst_med_bara_5_provi">Vauhti är en finländsk tjänst med bara 5 % provision — du behåller 95 % av varje resa.</p>
+
+        <div class="driver-stats">
+          <div class="driver-stat"><b>5 %</b><span>Provision</span></div>
+          <div class="driver-stat"><b>95 %</b><span>Till föraren</span></div>
+          <div class="driver-stat"><b>0 €</b><span>Startavgift</span></div>
+        </div>
+
+        <ul class="benefits">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Bara 5 % provision — ingen startavgift och inga dolda avdrag.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> 95 % av varje resa stannar hos dig.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Veckobonusar för mål och transparent utbetalning.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Support på finska 24/7 och nödknapp även för föraren.</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:kuljettajat@vauhti.fi?subject=Vauhti%20foraransokan">Ansök som förare</a>
+          <a class="btn btn-ghost" ../../demo/?screen=/driver-home">Se förarappen</a>
+        </div>
+        <p class="driver-note" data-cms="kuljettajalle_krav_minst_21_ar_giltigt_korkort_taxiforarbeho">Krav: minst 21 år, giltigt körkort, taxiförarbehörighet och godkänd bakgrundskontroll.</p>
+      </div>
+
+      <div class="driver-media">
+        <div class="phone driver-phone-back"><img src="../assets/shots/driver-offer.png" alt="Inkommande reseförfrågan för föraren" ></div>
+        <div class="phone"><img src="../assets/shots/driver-earnings.png" alt="Förarapp: veckans intäkter, bonusar och nästa utbetalning"></div>
+        <div class="driver-float">
+          <span class="lead" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--brand-50);color:var(--brand-800)"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <div><b>328,40 €</b><span>Nästa utbetalning · mån 16 nov</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DRIVER APP SHOWCASE ================= -->
+  <section class="section driver-app" id="kuljettajasovellus">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="kuljettajasovellus_forarapp">Förarapp</span>
+        <h2 data-cms="kuljettajasovellus_hela_arbetsdagen_pa_en_skarm">Hela arbetsdagen på en skärm.</h2>
+        <p data-cms="kuljettajasovellus_reseforfragningar_navigering_resekod_och_intak">Reseförfrågningar, navigering, resekod och intäkter. Mörkt gränssnitt för bilfästet, stora tryckytor och utbetalning alltid synlig.</p>
+      </div>
+
+      <div class="shot-grid driver-shots">
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-home.png" alt="Förarens startsida: dagens intäkter, acceptansgrad och veckomål"></div>
+          <figcaption><b>Arbetsdag</b>Intäkter och mål direkt.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-offer.png" alt="Inkommande reseförfrågan: upphämtning, destination, pris och accept"></div>
+          <figcaption><b>Reseförfrågan</b>Upphämtning, destination och pris.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-nav.png" alt="Navigering till upphämtning: sväng, avstånd och kunduppgifter"></div>
+          <figcaption><b>Till upphämtningen</b>Svängar och kund.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-earnings.png" alt="Intäkter: veckoutbetalning, bonusar, dricks och nästa betalning"></div>
+          <figcaption><b>Intäkter</b>Transparent veckoutbetalning.</figcaption>
+        </figure>
+      </div>
+
+      <div class="showcase-cta">
+        <a class="btn btn-primary" ../../demo/?screen=/driver-home">Öppna förardemon</a>
+        <a class="btn btn-outline" href="mailto:kuljettajat@vauhti.fi?subject=Vauhti%20foraransokan">Ansök som förare</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUSINESS ================= -->
+  <section class="business" id="yrityksille">
+    <div class="wrap">
+      <div>
+        <h2 data-cms="yrityksille_for_foretag_och_tjansteresor">För företag och tjänsteresor</h2>
+        <p data-cms="yrityksille_personalformaner_centraliserad_fakturering_och">Personalförmåner, centraliserad fakturering och resekostnader med FO-nummer. Vauhti passar team som rör sig i staden varje dag.</p>
+      </div>
+      <a class="btn btn-dark" href="mailto:myynti@vauhti.fi?subject=Vauhti%20yrityksille">Begär offert</a>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="ukk">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-cms="ukk_vanliga_fragor">Vanliga frågor</span>
+        <h2 data-cms="ukk_svar_fore_resan">Svar före resan.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary data-cms="ukk_hur_fungerar_det_fasta_priset">Hur fungerar det fasta priset?</summary>
+          <p data-cms="ukk_du_ser_slutpriset_innan_du_bekraftar_bokningen">Du ser slutpriset innan du bekräftar bokningen. Priset ändras inte under resan, även om trafiken går långsamt. Eventuell trängselavgift visas alltid i förväg.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_hur_mycket_provision_tar_vauhti">Hur mycket provision tar Vauhti?</summary>
+          <p data-cms="ukk_bara_5_foraren_behaller_95_av_varje_resa_start">Bara 5 %. Föraren behåller 95 % av varje resa. Startavgiften är 0 € och det finns inga dolda avdrag.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_vilka_reseklasser_finns">Vilka reseklasser finns?</summary>
+          <p data-cms="ukk_vauhti_vauhti_perhe_och_vauhti_lemmikki_vauhti">Vauhti, Vauhti Perhe och Vauhti Lemmikki. Vauhti är den snabba vardagsresan, Perhe är en rymlig resa med barnstol och Lemmikki tar med husdjuret.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_vad_hander_om_jag_maste_avboka">Vad händer om jag måste avboka?</summary>
+          <p data-cms="ukk_du_kan_avboka_utan_kostnad_tills_foraren_har_k">Du kan avboka utan kostnad tills föraren har kört iväg. Därefter gäller en avbokningsavgift som alltid visas före bekräftelse.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_hur_sakerstalls_sakerheten">Hur säkerställs säkerheten?</summary>
+          <p data-cms="ukk_varje_forare_har_bakgrundskontroll_taxiforarbe">Varje förare har bakgrundskontroll, taxiförarbehörighet och löpande betyg. I appen kan du dela resan, kontrollera rutten och ringa nödnumret med ett tryck.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_kan_jag_betala_med_personalforman">Kan jag betala med personalförmån?</summary>
+          <p data-cms="ukk_ja_vauhti_stoder_de_vanligaste_personalformans">Ja. Vauhti stöder de vanligaste personalförmånskorten och centraliserad fakturering. Kvittot får FO-nummer och specifikation av resekostnaderna.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_hur_ansoker_jag_som_forare">Hur ansöker jag som förare?</summary>
+          <p data-cms="ukk_skicka_ansokan_till_kuljettajat_vauhti_fi_du_b">Skicka ansökan till kuljettajat@vauhti.fi. Du behöver vara minst 21 år, ha giltigt körkort och taxiförarbehörighet samt godkänd bakgrundskontroll.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_var_verkar_vauhti">Var verkar Vauhti?</summary>
+          <p data-cms="ukk_vauhti_verkar_for_narvarande_i_helsingfors_tam">Vauhti verkar för närvarande i Helsingfors, Tammerfors och Åbo. Härnäst expanderar vi till Esbo, Vanda och Uleåborg.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOWNLOAD ================= -->
+  <section class="section download" id="lataa">
+    <div class="wrap download-grid">
+      <div>
+        <span class="eyebrow on-dark" data-cms="lataa_ladda_ner_appen">Ladda ner appen</span>
+        <h2 data-cms="lataa_staden_ar_nara">Staden är nära.</h2>
+        <p data-cms="lataa_ladda_ner_vauhti_och_boka_din_forsta_resa_fast">Ladda ner Vauhti och boka din första resa. Fast pris före resan, finsk support och rättvis 5 % provision.</p>
+        <div class="store-buttons">
+          <a class="store-btn" ../../demo/?screen=/welcome">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.4 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7c1.2 0 1.9-1.1 2.6-2.2.8-1.2 1.2-2.4 1.2-2.5 0 0-2.1-.8-2.1-3.6Z"/><path d="M14.2 5.9c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2Z"/></svg>
+            <span><span>Ladda ner</span><b>från App Store</b></span>
+          </a>
+          <a class="store-btn" href="https://github.com/jaervis/vauhti-app/releases/download/v1.0.0/vauhti-1.0.0.apk" download>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.6 2.9 14.8 13 4.6 23.1c-.3-.2-.5-.6-.5-1V3.9c0-.4.2-.8.5-1Z" fill="currentColor" opacity=".9"/><path d="m16.6 14.8 3.1 1.7c.7.4.7 1.4 0 1.8l-3.1 1.7-2.4-2.6 2.4-2.6Z" fill="currentColor" opacity=".55"/><path d="m16.6 9.2 3.1-1.7c.7-.4.7-1.4 0-1.8l-3.1-1.7-2.4 2.6 2.4 2.6Z" fill="currentColor" opacity=".55"/><path d="M14.8 13 4.6 2.9c.3-.2.7-.2 1.1 0l11.1 6.1-2 4Z" fill="currentColor" opacity=".75"/></svg>
+            <span><span>Ladda ner</span><b>Android-APK</b></span>
+          </a>
+        </div>
+        <p class="tiny" style="margin-top:14px;color:rgba(255,255,255,.42)">Demo: APK installeras på Android 7.0+. iOS-versionen och appbutikerna lanseras senare — prova webbläsarversionen nu.</p>
+      </div>
+      <div class="download-media">
+        <div class="phone"><img src="../assets/shots/home.png" alt="Vauhti-appens startsida"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Vauhti startsida">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="19" fill="#00C2A8"/>
+            <path d="M18 21 32 44 46 21" fill="none" stroke="#0A1020" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="18" cy="21" r="4.2" fill="#0A1020"/><circle cx="46" cy="21" r="4.2" fill="#fff"/>
+          </svg>
+          <span>vauhti<span class="dot">.</span></span>
+        </a>
+        <p data-cms="footer_inhemsk_taxitjanst_med_bara_5_provision_ett_sa">Inhemsk taxitjänst med bara 5 % provision. Ett säkert, snabbt och enkelt sätt att boka taxi.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Vauhti</h3>
+        <a href="#kyyti">Boka resa</a>
+        <a href="#reiluus">Rättvisa</a>
+        <a href="#hinnat">Reseklasser</a>
+        <a href="#turvallisuus">Säkerhet</a>
+        <a href="#sovellus">App</a>
+        <a href="/">Ensimmäinen versio</a>
+      </div>
+      <div class="footer-col">
+        <h3>För förare</h3>
+        <a href="#kuljettajalle">Kör med Vauhti</a>
+        <a href="#kuljettajasovellus">Förarapp</a>
+        <a href="#kuljettajalle">Intäkter och bonusar</a>
+        <a href="mailto:kuljettajat@vauhti.fi">kuljettajat@vauhti.fi</a>
+      </div>
+      <div class="footer-col">
+        <h3>För företag</h3>
+        <a href="#yrityksille">Personalförmåner</a>
+        <a href="#yrityksille">Centraliserad fakturering</a>
+        <a href="mailto:myynti@vauhti.fi">myynti@vauhti.fi</a>
+        <a href="#ukk">Hjälp och support</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vauhti Oy · FO-nummer 1234567-8 · Helsingfors</span>
+      <div class="lang" role="group" aria-label="Språk">
+          <a href="../" lang="fi" hreflang="fi">FI</a>
+          <a href="../" aria-current="true">SV</a>
+          <a href="../en/" lang="en" hreflang="en">EN</a>
+          <a href="../it/" lang="it" hreflang="it">IT</a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile navigation
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.nav-toggle');
+  toggle?.addEventListener('click', () => {
+    const open = header.dataset.open === 'true';
+    header.dataset.open = String(!open);
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+  document.querySelectorAll('.nav-links a').forEach((a) =>
+    a.addEventListener('click', () => {
+      header.dataset.open = 'false';
+      toggle?.setAttribute('aria-expanded', 'false');
+    })
+  );
+
+  // Booking: ride class selection updates the CTA price
+  const total = document.getElementById('book-total');
+  document.querySelectorAll('.ride-option').forEach((option) => {
+    option.addEventListener('click', () => {
+      document.querySelectorAll('.ride-option').forEach((o) => o.setAttribute('aria-pressed', 'false'));
+      option.setAttribute('aria-pressed', 'true');
+      if (total) total.textContent = option.dataset.price;
+    });
+  });
+</script>
+  <script src="/assets/kiln-config.js"></script>
+  <script src="/assets/kiln.js" defer></script>
+<script>
+  // Logo returns to the top instantly.
+  document.querySelectorAll('.brand').forEach((a) => {
+    a.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+</script>
+</body>
+</html>
