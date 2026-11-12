@@ -2,12 +2,13 @@
 
 Two versions of the Vauhti marketing site, side by side:
 
-- **`/`** — the first version: four ride classes (VauhtiX, Green, Comfort, XL), 12 % commission, Finnish. Kept as designed.
-- **`/v2/`** — the second version: the fair 5 % commission story, three classes (Vauhti, Vauhti Perhe, Vauhti Lemmikki), in Finnish, English and Italian.
+- **`/`** — the first version: four ride classes (VauhtiX, Green, Comfort, XL), 12 % commission. Finnish at `/`, English at `/en/`, Italian at `/it/`.
+- **`/v2/`** — the second version: the fair 5 % commission story, three classes (Vauhti, Vauhti Perhe, Vauhti Lemmikki), also in Finnish, English and Italian.
 
 ## Live
 
-- First version: https://vauhti-app.pages.dev/
+- First version (FI): https://vauhti-app.pages.dev/
+- First version EN / IT: https://vauhti-app.pages.dev/en/ · https://vauhti-app.pages.dev/it/
 - Second version (FI): https://vauhti-app.pages.dev/v2/
 - English: https://vauhti-app.pages.dev/v2/en/
 - Italian: https://vauhti-app.pages.dev/v2/it/
@@ -23,13 +24,14 @@ Two versions of the Vauhti marketing site, side by side:
 | Path | What it is |
 | --- | --- |
 | `index.html` | First version, Finnish |
+| `en/`, `it/` | First version in English and Italian |
 | `assets/` | First version assets, plus the shared Kiln scripts |
 | `v2/index.html` | Second version, Finnish (source language) |
 | `v2/en/`, `v2/it/` | Second version in English and Italian, localized app screenshots |
 | `v2/assets/` | Second version tokens, CSS, fonts and screenshots |
 | `demo/` | Prebuilt Flutter web demo (base path `/demo/`) |
 | `_headers` | Security headers for Cloudflare Pages |
-| `_redirects` | `/en/*` → `/v2/en/*`, `/it/*` → `/v2/it/*`, `/v1/*` → `/` |
+| `_redirects` | `/v1/*` → `/` |
 | `kiln.html`, `assets/kiln*.js` | Self-hosted Kiln editor wiring |
 
 ## Deploy
@@ -61,7 +63,8 @@ No build step. Serve the repository root:
 python3 -m http.server 8080
 ```
 
-- http://localhost:8080/ — first version
+- http://localhost:8080/ — first version (FI)
+- http://localhost:8080/en/ · /it/ — first version EN / IT
 - http://localhost:8080/v2/ — second version (FI)
 - http://localhost:8080/v2/en/ — English
 - http://localhost:8080/v2/it/ — Italian
@@ -72,13 +75,13 @@ The demo accepts `?screen=/home` and `?lang=fi|sv|en|it`.
 ## Kiln
 
 - Self-hosted **free** plan: the shared Cloudflare Worker `kiln-auth` plus the Kiln GitHub App.
-- Copy is tagged with `data-cms` attributes on both the first version and `/v2/`; sign in at `/kiln` to edit.
+- Copy is tagged with `data-cms` attributes on the first version (FI/EN/IT) and `/v2/` (FI/EN/IT); sign in at `/kiln` to edit.
 - The site config lives in `assets/kiln-config.js` (`repo`, `branch`, `worker`, `siteName`).
 - Editing commits straight to `main`, which redeploys Pages.
 
 ## Versions
 
-- **v1** (root): four classes, 12 % commission, Finnish only.
+- **v1** (root, `/en/`, `/it/`): four classes, 12 % commission, FI + EN + IT.
 - **v2** (`/v2/`): three classes, 5 % commission to Vauhti / 95 % to the driver, FI + EN + IT.
 
 ## Android demo

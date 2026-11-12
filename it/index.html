@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vauhti — La città è vicina.</title>
+<meta name="description" content="Vauhti è un servizio di trasporto finlandese. Prezzo fisso prima della corsa, autisti affidabili e sicurezza sempre con te. Prenota una corsa o candidati come autista.">
+<meta name="theme-color" content="#0A1020">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vauhti — La città è vicina.">
+<meta property="og:description" content="Prezzo fisso prima della corsa, assistenza clienti finlandese e sicurezza sempre con te. Scopri le app per clienti e autisti.">
+<meta property="og:image" content="../assets/shots/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://vauhti-app.pages.dev/it/">
+<link rel="alternate" hreflang="fi" href="https://vauhti-app.pages.dev/">
+<link rel="alternate" hreflang="en" href="https://vauhti-app.pages.dev/en/">
+<link rel="alternate" hreflang="it" href="https://vauhti-app.pages.dev/it/">
+<link rel="alternate" hreflang="x-default" href="https://vauhti-app.pages.dev/">
+<link rel="icon" href="../assets/favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/fonts.css?v=1">
+<link rel="stylesheet" href="../assets/tokens.css?v=1">
+<link rel="stylesheet" href="../assets/site.css?v=5">
+<style>.footer-bottom .v2-link{color:#00C2A8;text-decoration:none;font-weight:600}</style>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Vai al contenuto</a>
+
+<!-- Icon sprite (paths from the Vauhti icon set) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.8 16.2v-3.4c0-.5.2-.9.6-1.2l1.7-1.4 1.3-2.3A2 2 0 0 1 9.2 7h5.6a2 2 0 0 1 1.7 1l1.4 2.3 1.7 1.4c.4.3.6.7.6 1.2v3.3"/>
+    <path d="M3.8 16.2h16.4"/><path d="M4.5 16.2v1.6M19.5 16.2v1.6"/>
+    <circle cx="7.4" cy="16.3" r="1.7"/><circle cx="16.6" cy="16.3" r="1.7"/>
+    <path d="M9.2 10.4h5.6"/><path d="M6.2 12.6h11.6"/>
+  </symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.4 3.6C11.6 3 4.4 9.7 6.2 17.8c8.1 1.8 14.8-5.4 14.2-14.2Z"/>
+    <path d="M7.4 16.6C9 12.4 12 9.1 16.6 7"/>
+  </symbol>
+  <symbol id="i-van" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2.8 16.6V9.2c0-.7.5-1.2 1.2-1.2h9.6l4 3.3 3.1 1.1c.4.2.6.5.6.9v3.3"/>
+    <path d="M2.8 16.6h18.5"/><circle cx="7" cy="16.8" r="1.8"/><circle cx="17" cy="16.8" r="1.8"/>
+    <path d="M4 16.8v1.4M20 16.8v1.4"/><path d="M13.4 8v4.4h7.4"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.8 4.8 5.7v5.7c0 4.6 3 8.6 7.2 10.1 4.2-1.5 7.2-5.5 7.2-10.1V5.7L12 2.8Z"/>
+    <path d="m8.8 11.8 2.2 2.2 4.4-4.4"/>
+  </symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.2 8.6V6.8a2 2 0 0 0-2-2H4.8a2 2 0 0 0-2 2v10.4a2 2 0 0 0 2 2h13.4a2 2 0 0 0 2-2v-1.8"/>
+    <path d="M21.2 8.6h-5.4a2.7 2.7 0 0 0 0 5.4h5.4Z"/>
+  </symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13.4 2.8 4.8 13.6h6l-1.4 7.6 8.6-10.8h-6l1.4-7.6Z"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.6 2.2"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.4 3h2.9l1.5 4-2 1.5a12.4 12.4 0 0 0 5.7 5.7l1.5-2 4 1.5v2.9a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.2 2 2 0 0 1 6.4 3Z"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="8.2" r="3.8"/><path d="M2.4 20.4c.5-3.6 3.3-5.8 6.6-5.8s6.1 2.2 6.6 5.8"/>
+    <path d="M16.2 5.1a3.8 3.8 0 0 1 0 7.4M17.6 14.9c2.4.5 3.9 2.4 4.2 5.1"/>
+  </symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.8" y="5.4" width="18.4" height="13.2" rx="2.4"/><path d="M2.8 10h18.4"/><path d="M6.6 14.6h3.2"/>
+  </symbol>
+  <symbol id="i-work" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="7.5" width="18" height="12.5" rx="2"/>
+    <path d="M9 7.5V5.8c0-.7.6-1.3 1.3-1.3h3.4c.7 0 1.3.6 1.3 1.3v1.7"/>
+    <path d="M3 12.4h18"/><path d="M10.4 12.4v2.2h3.2v-2.2"/>
+  </symbol>
+  <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="5.4" cy="5.4" r="2.6"/><circle cx="18.6" cy="18.6" r="2.6"/>
+    <path d="M8 5.4h6.4a4 4 0 0 1 0 8H9.6a4 4 0 0 0 0 8H16"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m4.5 12.5 5 5L20 6.8"/>
+  </symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.2" y="5" width="17.6" height="16" rx="2.6"/>
+    <path d="M3.2 10h17.6M8 2.8v4.4M16 2.8v4.4"/><path d="M7.6 14h2M11 14h2M14.4 14h2M7.6 17.4h2M11 17.4h2"/>
+  </symbol>
+</svg>
+
+<header class="site-header" data-open="false">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Vauhti home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="19" fill="#00C2A8"/>
+        <path d="M18 21 32 44 46 21" fill="none" stroke="#0A1020" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="18" cy="21" r="4.2" fill="#0A1020"/><circle cx="46" cy="21" r="4.2" fill="#fff"/>
+      </svg>
+      <span>vauhti<span class="dot">.</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Menu principale">
+      <a href="#kyyti">Kyyti</a>
+      <a href="#sovellus">App</a>
+      <a href="#hinnat">Prezzi</a>
+      <a href="#turvallisuus">Sicurezza</a>
+      <a href="#kuljettajalle">Per gli autisti</a>
+      <a href="#yrityksille">Per le aziende</a>
+      <a href="#ukk">Aiuto</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Lingua">
+        <a href="../" lang="fi" hreflang="fi">FI</a>
+        <a href="../en/" lang="en" hreflang="en">EN</a>
+        <a href="./" aria-current="true">IT</a>
+      </div>
+      <a class="nav-login" href="#lataa">Accedi</a>
+      <a class="btn btn-primary btn-sm" href="#lataa">Scarica l'app</a>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="top" aria-label="Apri il menu">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="kyyti">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow on-dark" data-cms="kyyti_ora_a_helsinki_tampere_turku">Ora a Helsinki · Tampere · Turku</span>
+        <h1 data-cms="kyyti_tutta_la_citta_con_un_tocco">Tutta la città<br><em>con un tocco.</em></h1>
+        <p class="hero-sub" data-cms="kyyti_prezzo_fisso_prima_della_corsa_autisti_affidab">Prezzo fisso prima della corsa. Autisti affidabili, assistenza clienti finlandese e pagamento come preferisci.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kyyti">Prenota una corsa</a>
+          <a class="btn btn-ghost" href="#kuljettajalle">Guida con Vauhti</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>4,92 ★</b><span>Valutazione autisti</span></div>
+          <div><b>3 min</b><span>Attesa media</span></div>
+          <div><b>120 000+</b><span>Corse nel 2026</span></div>
+        </div>
+      </div>
+
+      <div class="book-card" aria-label="Prenota una corsa">
+        <div class="book-head">
+          <h2 data-cms="kyyti_dove_andiamo">Dove andiamo?</h2>
+          <span class="book-badge"><svg class="ico" style="width:14px;height:14px" aria-hidden="true"><use href="#i-bolt"/></svg> Prezzo fisso</span>
+        </div>
+
+        <div class="field">
+          <span class="dot" aria-hidden="true"></span>
+          <input value="Posizione attuale" aria-label="Partenza">
+        </div>
+        <div class="field">
+          <svg class="ico" aria-hidden="true"><use href="#i-route"/></svg>
+          <input value="Kallio, Helsinki" aria-label="Destinazione">
+        </div>
+
+        <div class="ride-list" role="group" aria-label="Classe di corsa">
+          <button class="ride-option" type="button" data-price="12,40 €" aria-pressed="true">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>
+            <span class="grow"><span class="name">VauhtiX</span><span class="meta">4 min · 1–4 persone</span></span>
+            <span class="price"><b>12,40 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="14,20 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Green</span><span class="meta">5 min · totalmente elettrica</span></span>
+            <span class="price"><b>14,20 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="16,80 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Comfort</span><span class="meta">6 min · corsa più silenziosa</span></span>
+            <span class="price"><b>16,80 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="21,90 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-van"/></svg></span>
+            <span class="grow"><span class="name">VauhtiXL</span><span class="meta">9 min · 1–6 persone</span></span>
+            <span class="price"><b>21,90 €</b><span>3,2 km</span></span>
+          </button>
+        </div>
+
+        <div class="book-pay">
+          <span class="pay-left"><svg class="ico" style="width:18px;height:18px" aria-hidden="true"><use href="#i-card"/></svg> Visa •• 4242</span>
+          <a class="link" href="#ukk">Cambia</a>
+        </div>
+
+        <a class="btn btn-primary btn-block" href="../demo/?screen=/options">Prenota una corsa · <span id="book-total">12,40 €</span></a>
+        <p class="tiny muted" style="margin-top:10px;text-align:center" data-cms="kyyti_il_prezzo_include_l_iva_al_25_5_nessun_costo_n">Il prezzo include l'IVA al 25,5 %. Nessun costo nascosto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST ================= -->
+  <div class="trust-strip" aria-label="Vauhti in numeri">
+    <div class="wrap trust-grid">
+      <div class="trust-item"><b>4,92 / 5</b><span>Valutazione autisti</span></div>
+      <div class="trust-item"><b>3 min</b><span>Attesa media</span></div>
+      <div class="trust-item"><b>120 000+</b><span>Corse nel 2026</span></div>
+      <div class="trust-item"><b>24/7</b><span>Assistenza in finlandese</span></div>
+    </div>
+  </div>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="section" id="nain-se-toimii">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="nain_se_toimii_come_funziona">Come funziona</span>
+        <h2 data-cms="nain_se_toimii_tre_passaggi_nessuna_sorpresa">Tre passaggi. Nessuna sorpresa.</h2>
+        <p data-cms="nain_se_toimii_vauhti_mostra_prezzo_tempo_di_arrivo_e_percors">Vauhti mostra prezzo, tempo di arrivo e percorso prima che tu confermi. L'importo finale è quello che hai visto.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="num">01</span>
+          <h3 data-cms="nain_se_toimii_inserisci_la_destinazione">Inserisci la destinazione</h3>
+          <p data-cms="nain_se_toimii_vedi_il_prezzo_fisso_e_il_tempo_di_arrivo_prim">Vedi il prezzo fisso e il tempo di arrivo prima di ordinare. Scegli la classe e il metodo di pagamento.</p>
+        </article>
+        <article class="step">
+          <span class="num">02</span>
+          <h3 data-cms="nain_se_toimii_accetta_la_corsa">Accetta la corsa</h3>
+          <p data-cms="nain_se_toimii_l_autista_piu_vicino_riceve_la_richiesta_vedi">L'autista più vicino riceve la richiesta. Vedi l'auto, la valutazione dell'autista e il percorso sulla mappa.</p>
+        </article>
+        <article class="step">
+          <span class="num">03</span>
+          <h3 data-cms="nain_se_toimii_arriva_senza_sorprese">Arriva senza sorprese</h3>
+          <p data-cms="nain_se_toimii_paga_come_preferisci_ricevuta_via_email_e_part">Paga come preferisci. Ricevuta via email e partita IVA aziendale per le note spese.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RIDE CLASSES ================= -->
+  <section class="section" id="hinnat" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="hinnat_kyytiluokat">Kyytiluokat</span>
+        <h2 data-cms="hinnat_scegli_la_corsa_giusta_per_il_viaggio">Scegli la corsa giusta per il viaggio.</h2>
+        <p data-cms="hinnat_tutti_i_prezzi_sono_fissi_e_includono_l_iva_al">Tutti i prezzi sono fissi e includono l'IVA al 25,5 %. Prezzo di esempio Kamppi–Kallio, 3,2 km.</p>
+      </div>
+      <div class="classes">
+        <article class="class-card highlight">
+          <span class="tag">Più scelta</span>
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-car"/></svg></span>
+          <h3 data-cms="hinnat_vauhtix">VauhtiX</h3>
+          <p data-cms="hinnat_corsa_rapida_ed_economica_per_uno_a_quattro">Corsa rapida ed economica per uno a quattro.</p>
+          <div class="price"><b>12,40 €</b><span>4 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_green">Vauhti Green</h3>
+          <p data-cms="hinnat_corsa_totalmente_elettrica_con_un_impronta_di">Corsa totalmente elettrica con un'impronta di carbonio ridotta.</p>
+          <div class="price"><b>14,20 €</b><span>5 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-car"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_comfort">Vauhti Comfort</h3>
+          <p data-cms="hinnat_viaggio_piu_silenzioso_auto_piu_grande_e_autis">Viaggio più silenzioso, auto più grande e autista più esperto.</p>
+          <div class="price"><b>16,80 €</b><span>6 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-van"/></svg></span>
+          <h3 data-cms="hinnat_vauhtixl">VauhtiXL</h3>
+          <p data-cms="hinnat_per_sei_passeggeri_e_i_bagagli_anche_per_l_aer">Per sei passeggeri e i bagagli. Anche per l'aeroporto.</p>
+          <div class="price"><b>21,90 €</b><span>9 min · 3,2 km</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APP SHOWCASE ================= -->
+  <section class="section showcase" id="sovellus">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-cms="sovellus_app_per_i_clienti">App per i clienti</span>
+        <h2 data-cms="sovellus_tutto_il_viaggio_in_un_unica_app">Tutto il viaggio in un'unica app.</h2>
+        <p data-cms="sovellus_20_schermate_progettate_prenotazione_scelta_de">20 schermate progettate: prenotazione, scelta della corsa, tracciamento dell'autista, centro sicurezza e ricevuta. Scritte prima in finlandese, non tradotte.</p>
+      </div>
+
+      <div class="shot-grid">
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/welcome.png" alt="Schermata di benvenuto dell'app Vauhti con selezione della lingua"></div>
+          <figcaption><b>Benvenuto</b>Lingua e primo passo.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/home.png" alt="Home dell'app Vauhti: destinazione, servizi e indirizzi salvati"></div>
+          <figcaption><b>Home</b>Dove sei, dove vai.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/options.png" alt="Scelta corsa: VauhtiX, Green, Comfort e XL con prezzi fissi"></div>
+          <figcaption><b>Scelta corsa</b>Prezzo prima di ordinare.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/found.png" alt="Autista in arrivo: auto, targa e PIN"></div>
+          <figcaption><b>Autista in arrivo</b>Auto, autista e PIN.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/ride.png" alt="Vista in viaggio: percorso sulla mappa, tempo e strumenti di sicurezza"></div>
+          <figcaption><b>In viaggio</b>Percorso e tempo sempre visibili.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/receipt.png" alt="Ricevuta e valutazione: dettaglio del prezzo, mancia e valutazione dell'autista"></div>
+          <figcaption><b>Ricevuta e valutazione</b>Dettaglio del prezzo trasparente.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/scheduled.png" alt="Pianifica una corsa: giorno, orario e corsa ricorrente"></div>
+          <figcaption><b>Pianifica una corsa</b>In anticipo o ricorrente.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/trips.png" alt="Cronologia corse: spese del mese e corse precedenti"></div>
+          <figcaption><b>Corse</b>Tutte le ricevute insieme.</figcaption>
+        </figure>
+      </div>
+
+      <div class="showcase-cta">
+        <a class="btn btn-primary" href="../demo/?screen=/home">Apri la demo interattiva</a>
+        <a class="btn btn-ghost" href="../index.html#rider">Tutte le 20 schermate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAFETY ================= -->
+  <section class="section" id="turvallisuus">
+    <div class="wrap safety-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:28px">
+          <span class="eyebrow" data-cms="turvallisuus_sicurezza">Sicurezza</span>
+          <h2 data-cms="turvallisuus_la_sicurezza_non_e_nascosta">La sicurezza non è nascosta.</h2>
+          <p data-cms="turvallisuus_ogni_corsa_ha_gli_stessi_strumenti_condivision">Ogni corsa ha gli stessi strumenti: condivisione del viaggio, controllo del percorso e pulsante di emergenza. Sempre a portata di tocco.</p>
+        </div>
+        <div class="safety-list">
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div><h3 data-cms="turvallisuus_condividi_la_corsa">Condividi la corsa</h3><p data-cms="turvallisuus_invia_percorso_e_arrivo_stimato_in_un_solo_mes">Invia percorso e arrivo stimato in un solo messaggio. Il tracciamento termina automaticamente a destinazione.</p></div>
+          </article>
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg></span>
+            <div><h3 data-cms="turvallisuus_controlla_il_percorso">Controlla il percorso</h3><p data-cms="turvallisuus_vedi_se_l_autista_ha_lasciato_il_percorso_se_s">Vedi se l'autista ha lasciato il percorso. Se serve, chiama l'autista o l'assistenza direttamente dall'app.</p></div>
+          </article>
+          <article class="safety-item">
+            <span class="lead"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <div><h3 data-cms="turvallisuus_pulsante_di_emergenza">Pulsante di emergenza</h3><p data-cms="turvallisuus_chiamata_al_112_con_la_tua_posizione_condivisa">Chiamata al 112 con la tua posizione condivisa. Vauhti mostra i dati dell'autista e lo stato della corsa.</p></div>
+          </article>
+        </div>
+      </div>
+      <div class="safety-media">
+        <div class="phone"><img src="../assets/shots/safety.png" alt="Centro sicurezza: emergenza, condivisione corsa, codice corsa e contatti di sicurezza"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DRIVER ================= -->
+  <section class="section driver" id="kuljettajalle">
+    <div class="wrap driver-grid">
+      <div>
+        <span class="eyebrow on-dark" data-cms="kuljettajalle_per_gli_autisti">Per gli autisti</span>
+        <h2 data-cms="kuljettajalle_guida_alle_tue_condizioni_guadagna_in_modo_equ">Guida alle tue condizioni.<br>Guadagna in modo equo.</h2>
+        <p class="lead" data-cms="kuljettajalle_vauhti_applica_una_commissione_fissa_del_12_e">Vauhti applica una commissione fissa del 12 % e mostra i guadagni in tempo reale. Nessun costo di avvio, nessun costo nascosto, nessuna trattenuta a sorpresa.</p>
+
+        <div class="driver-stats">
+          <div class="driver-stat"><b>68,40 €</b><span>Ieri</span></div>
+          <div class="driver-stat"><b>92 %</b><span>Tasso di accettazione</span></div>
+          <div class="driver-stat"><b>0 €</b><span>Costo di avvio</span></div>
+        </div>
+
+        <ul class="benefits">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Commissione fissa del 12 % — sai sempre quanto paghi.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Bonus settimanali sugli obiettivi e pagamenti trasparenti.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Estratti conto, consulenza fiscale e supporto partita IVA.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Assistenza 24/7 in finlandese e pulsante di sicurezza anche per l'autista.</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:kuljettajat@vauhti.fi?subject=Hakemus%20Vauhti-kuljettajaksi">Candidati come autista</a>
+          <a class="btn btn-ghost" href="../demo/?screen=/driver-home">Guarda l'app autisti</a>
+        </div>
+        <p class="driver-note" data-cms="kuljettajalle_requisiti_almeno_21_anni_patente_valida_licenz">Requisiti: almeno 21 anni, patente valida, licenza di tassista e controllo del casellario approvato.</p>
+      </div>
+
+      <div class="driver-media">
+        <div class="phone driver-phone-back"><img src="../assets/shots/driver-offer.png" alt="Richiesta di corsa in arrivo per l'autista" ></div>
+        <div class="phone"><img src="../assets/shots/driver-earnings.png" alt="App autisti: guadagni settimanali, bonus e prossimo pagamento"></div>
+        <div class="driver-float">
+          <span class="lead" style="width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--brand-50);color:var(--brand-800)"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <div><b>328,40 €</b><span>Prossimo pagamento · lun 16 nov</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DRIVER APP SHOWCASE ================= -->
+  <section class="section driver-app" id="kuljettajasovellus">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-cms="kuljettajasovellus_app_autisti">App autisti</span>
+        <h2 data-cms="kuljettajasovellus_tutta_la_giornata_di_lavoro_su_un_solo_schermo">Tutta la giornata di lavoro su un solo schermo.</h2>
+        <p data-cms="kuljettajasovellus_richieste_navigazione_codice_corsa_e_guadagni">Richieste, navigazione, codice corsa e guadagni. Interfaccia scura per il supporto auto, aree touch ampie e pagamenti sempre visibili.</p>
+      </div>
+
+      <div class="shot-grid driver-shots">
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-home.png" alt="Home autisti: guadagni del giorno, tasso di accettazione e obiettivo settimanale"></div>
+          <figcaption><b>Giornata</b>Guadagni e obiettivo subito.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-offer.png" alt="Richiesta in arrivo: ritiro, destinazione, prezzo e accettazione"></div>
+          <figcaption><b>Richiesta corsa</b>Ritiro, destinazione e prezzo.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-nav.png" alt="Navigazione verso il ritiro: svolta, distanza e dati del cliente"></div>
+          <figcaption><b>Verso il ritiro</b>Indicazioni e cliente.</figcaption>
+        </figure>
+        <figure class="shot-item">
+          <div class="phone"><img src="../assets/shots/driver-earnings.png" alt="Guadagni: pagamento settimanale, bonus, mance e prossimo accredito"></div>
+          <figcaption><b>Guadagni</b>Pagamento settimanale trasparente.</figcaption>
+        </figure>
+      </div>
+
+      <div class="showcase-cta">
+        <a class="btn btn-primary" href="../demo/?screen=/driver-home">Apri la demo autisti</a>
+        <a class="btn btn-outline" href="mailto:kuljettajat@vauhti.fi?subject=Hakemus%20Vauhti-kuljettajaksi">Candidati come autista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUSINESS ================= -->
+  <section class="business" id="yrityksille">
+    <div class="wrap">
+      <div>
+        <h2 data-cms="yrityksille_per_aziende_e_trasferte">Per aziende e trasferte</h2>
+        <p data-cms="yrityksille_benefit_aziendali_fatturazione_centralizzata_e">Benefit aziendali, fatturazione centralizzata e note spese con partita IVA. Vauhti è pensato per i team che si muovono in città ogni giorno.</p>
+      </div>
+      <a class="btn btn-dark" href="mailto:myynti@vauhti.fi?subject=Vauhti%20yrityksille">Richiedi un preventivo</a>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="ukk">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow" data-cms="ukk_domande_frequenti">Domande frequenti</span>
+        <h2 data-cms="ukk_risposte_prima_della_corsa">Risposte prima della corsa.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary data-cms="ukk_come_funziona_il_prezzo_fisso">Come funziona il prezzo fisso?</summary>
+          <p data-cms="ukk_vedi_il_prezzo_finale_prima_di_confermare_l_or">Vedi il prezzo finale prima di confermare l'ordine. Il prezzo non cambia durante la corsa, anche se il traffico rallenta. L'eventuale maggiorazione è sempre indicata in anticipo.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_e_se_devo_annullare_la_corsa">E se devo annullare la corsa?</summary>
+          <p data-cms="ukk_puoi_annullare_senza_costi_finche_l_autista_no">Puoi annullare senza costi finché l'autista non è partito. Dopo, si applica un costo di annullamento sempre mostrato prima della conferma.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_come_viene_garantita_la_sicurezza">Come viene garantita la sicurezza?</summary>
+          <p data-cms="ukk_ogni_autista_ha_un_controllo_del_casellario_un">Ogni autista ha un controllo del casellario, una licenza di tassista e valutazioni continue. Nell'app puoi condividere la corsa, controllare il percorso e chiamare i soccorsi con un tocco.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_posso_pagare_con_i_benefit_aziendali">Posso pagare con i benefit aziendali?</summary>
+          <p data-cms="ukk_si_vauhti_supporta_le_principali_carte_benefit">Sì. Vauhti supporta le principali carte benefit aziendali e la fatturazione centralizzata. Le ricevute includono la partita IVA e il dettaglio delle spese.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_come_mi_candido_come_autista">Come mi candido come autista?</summary>
+          <p data-cms="ukk_invia_una_candidatura_a_kuljettajat_vauhti_fi">Invia una candidatura a kuljettajat@vauhti.fi. Devi avere almeno 21 anni, una patente valida, una licenza di tassista e superare un controllo del casellario.</p>
+        </details>
+        <details>
+          <summary data-cms="ukk_dove_opera_vauhti">Dove opera Vauhti?</summary>
+          <p data-cms="ukk_vauhti_opera_attualmente_a_helsinki_tampere_e">Vauhti opera attualmente a Helsinki, Tampere e Turku. Prossimamente ci espanderemo a Espoo, Vantaa e Oulu.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOWNLOAD ================= -->
+  <section class="section download" id="lataa">
+    <div class="wrap download-grid">
+      <div>
+        <span class="eyebrow on-dark" data-cms="lataa_scarica_l_app">Scarica l'app</span>
+        <h2 data-cms="lataa_la_citta_e_vicina">La città è vicina.</h2>
+        <p data-cms="lataa_scarica_vauhti_e_prenota_la_prima_corsa_prezzo">Scarica Vauhti e prenota la prima corsa. Prezzo fisso, assistenza finlandese e sicurezza sempre con te.</p>
+        <div class="store-buttons">
+          <a class="store-btn" href="../demo/?screen=/welcome">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.4 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7c1.2 0 1.9-1.1 2.6-2.2.8-1.2 1.2-2.4 1.2-2.5 0 0-2.1-.8-2.1-3.6Z"/><path d="M14.2 5.9c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2Z"/></svg>
+            <span><span>Lataa</span><b>dall'App Store</b></span>
+          </a>
+          <a class="store-btn" href="https://github.com/jaervis/vauhti-app/releases/download/v1.0.0/vauhti-1.0.0.apk" download>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.6 2.9 14.8 13 4.6 23.1c-.3-.2-.5-.6-.5-1V3.9c0-.4.2-.8.5-1Z" fill="currentColor" opacity=".9"/><path d="m16.6 14.8 3.1 1.7c.7.4.7 1.4 0 1.8l-3.1 1.7-2.4-2.6 2.4-2.6Z" fill="currentColor" opacity=".55"/><path d="m16.6 9.2 3.1-1.7c.7-.4.7-1.4 0-1.8l-3.1-1.7-2.4 2.6 2.4 2.6Z" fill="currentColor" opacity=".55"/><path d="M14.8 13 4.6 2.9c.3-.2.7-.2 1.1 0l11.1 6.1-2 4Z" fill="currentColor" opacity=".75"/></svg>
+            <span><span>Lataa</span><b>APK Android</b></span>
+          </a>
+        </div>
+        <p class="tiny" style="margin-top:14px;color:rgba(255,255,255,.42)">Demo: l'APK si installa su Android 7.0+. La versione iOS e gli app store arriveranno al lancio — prova ora la versione browser.</p>
+      </div>
+      <div class="download-media">
+        <div class="phone"><img src="../assets/shots/home.png" alt="Home dell'app Vauhti"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Vauhti home">
+          <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="19" fill="#00C2A8"/>
+            <path d="M18 21 32 44 46 21" fill="none" stroke="#0A1020" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="18" cy="21" r="4.2" fill="#0A1020"/><circle cx="46" cy="21" r="4.2" fill="#fff"/>
+          </svg>
+          <span>vauhti<span class="dot">.</span></span>
+        </a>
+        <p data-cms="footer_un_servizio_di_trasporto_finlandese_con_il_pre">Un servizio di trasporto finlandese con il prezzo noto prima della corsa. Pensato per la vita quotidiana del nord.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Vauhti</h3>
+        <a href="#kyyti">Prenota una corsa</a>
+        <a href="#hinnat">Prezzi</a>
+        <a href="#turvallisuus">Sicurezza</a>
+        <a href="#sovellus">App</a>
+              </div>
+      <div class="footer-col">
+        <h3>Per gli autisti</h3>
+        <a href="#kuljettajalle">Guida con Vauhti</a>
+        <a href="#kuljettajasovellus">App autisti</a>
+        <a href="#kuljettajalle">Guadagni e bonus</a>
+        <a href="mailto:kuljettajat@vauhti.fi">kuljettajat@vauhti.fi</a>
+      </div>
+      <div class="footer-col">
+        <h3>Per le aziende</h3>
+        <a href="#yrityksille">Benefit aziendali</a>
+        <a href="#yrityksille">Fatturazione centralizzata</a>
+        <a href="mailto:myynti@vauhti.fi">myynti@vauhti.fi</a>
+        <a href="#ukk">Aiuto e assistenza</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vauhti Oy · P. IVA 1234567-8 · Helsinki</span>
+      <a class="v2-link" href="/v2/">Nuova versione (v2) →</a>
+      <div class="lang" role="group" aria-label="Lingua">
+        <a href="../" lang="fi" hreflang="fi">FI</a>
+        <a href="../en/" lang="en" hreflang="en">EN</a>
+        <a href="./" aria-current="true">IT</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile navigation
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.nav-toggle');
+  toggle?.addEventListener('click', () => {
+    const open = header.dataset.open === 'true';
+    header.dataset.open = String(!open);
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+  document.querySelectorAll('.nav-links a').forEach((a) =>
+    a.addEventListener('click', () => {
+      header.dataset.open = 'false';
+      toggle?.setAttribute('aria-expanded', 'false');
+    })
+  );
+
+  // Booking: ride class selection updates the CTA price
+  const total = document.getElementById('book-total');
+  document.querySelectorAll('.ride-option').forEach((option) => {
+    option.addEventListener('click', () => {
+      document.querySelectorAll('.ride-option').forEach((o) => o.setAttribute('aria-pressed', 'false'));
+      option.setAttribute('aria-pressed', 'true');
+      if (total) total.textContent = option.dataset.price;
+    });
+  });
+
+</script>
+  <script src="/assets/kiln-config.js"></script>
+  <script src="/assets/kiln.js" defer></script>
+<script>
+  // Logo returns to the top instantly.
+  document.querySelectorAll('.brand').forEach((a) => {
+    a.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+</script>
+</body>
+</html>

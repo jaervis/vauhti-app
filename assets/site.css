@@ -459,3 +459,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing:
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
 }
+
+
+/* ---- Language switcher (links) ----------------------------------------- */
+.lang { display: inline-flex; gap: 4px; }
+.lang a, .lang button {
+  border: 1px solid rgba(255,255,255,.16); background: transparent; color: rgba(255,255,255,.6);
+  border-radius: 999px; padding: 5px 10px; font-size: 11px; text-decoration: none;
+}
+.lang a[aria-current="true"] { background: #fff; color: var(--ink-900); border-color: #fff; font-weight: 600; }
+.lang-switch { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); }
+.lang-switch a {
+  padding: 5px 9px; border-radius: 999px; font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; color: rgba(255,255,255,.66); text-decoration: none;
+}
+.lang-switch a:hover { color: #fff; }
+.lang-switch a[aria-current="true"] { background: #fff; color: var(--ink-900); }
+
+/* Selected-ride badge follows the page language. */
+html[lang="en"] .ride-option[aria-pressed="true"] .name::after { content: "Fastest"; }
+html[lang="it"] .ride-option[aria-pressed="true"] .name::after { content: "Più veloce"; }

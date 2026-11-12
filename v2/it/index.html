@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="../assets/tokens.css?v=1">
 <link rel="stylesheet" href="../assets/site.css?v=6">
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main">Vai al contenuto</a>
 
 <!-- Icon sprite (paths from the Vauhti icon set) -->
@@ -93,7 +93,7 @@
   </symbol>
 </svg>
 
-<header class="site-header" id="top" data-open="false">
+<header class="site-header" data-open="false">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Vauhti home">
       <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
@@ -603,5 +603,15 @@
 </script>
   <script src="/assets/kiln-config.js"></script>
   <script src="/assets/kiln.js" defer></script>
+<script>
+  // Logo returns to the top instantly.
+  document.querySelectorAll('.brand').forEach((a) => {
+    a.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+</script>
 </body>
 </html>
