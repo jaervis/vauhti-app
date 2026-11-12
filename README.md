@@ -33,7 +33,7 @@ The Vauhti marketing site: a Finnish ride-hailing service with a 5 % commission.
 - Build command: leave empty
 - Output directory: `/`
 - Production branch: `main`
-- Auto-deploy: install the **Cloudflare Pages** GitHub App on this repository — https://github.com/apps/cloudflare-pages/installations/new — then every push to `main` deploys.
+- Auto-deploy: install the **Cloudflare Pages** GitHub App on this repository — https://github.com/apps/cloudflare-workers-and-pages/installations/new — then every push to `main` deploys.
 - Until the app is installed, publish manually: `npx wrangler pages deploy . --project-name vauhti-app --branch main`
 - The Android APK lives in a GitHub Release (Pages has a 25 MiB per-file limit and the APK is ~48 MB).
 
