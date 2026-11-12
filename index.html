@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<!-- Vauhti website, version 2: reiluus-edellä ja kolme kyytiluokkaa. Ensimmäinen luonnos: ../website-v1/ -->
 <html lang="fi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vauhti — Reilu tapa tilata taksi.</title>
-<meta name="description" content="Vauhti on kotimainen taksipalvelu, jonka komissio on vain 5 %. Turvallinen, nopea ja helppo tapa tilata taksi. Reilu tapa ajaa taksia.">
+<title>Vauhti — Kaupunki on lähellä.</title>
+<meta name="description" content="Vauhti on suomalainen kyytipalvelu. Kiinteä hinta ennen kyytiä, luotettavat kuljettajat ja turva aina mukana. Tilaa kyyti tai hae kuljettajaksi.">
 <meta name="theme-color" content="#0A1020">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Vauhti — Reilu tapa tilata taksi.">
-<meta property="og:description" content="Taksiala on ollut kestämättömällä pohjalla. Vauhti on kotimainen reilu vaihtoehto: komissio vain 5 %, kuljettaja pitää 95 %, ja asiakas näkee kiinteän hinnan ennen kyytiä.">
+<meta property="og:title" content="Vauhti — Kaupunki on lähellä.">
+<meta property="og:description" content="Kiinteä hinta ennen kyytiä, suomalainen asiakaspalvelu ja turva aina mukana. Tutustu asiakas- ja kuljettajasovellukseen.">
 <meta property="og:image" content="assets/shots/home.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:locale" content="fi_FI">
-<meta property="og:locale:alternate" content="en_GB">
-<meta property="og:locale:alternate" content="it_IT">
 <link rel="canonical" href="https://vauhti-app.pages.dev/">
 <link rel="alternate" hreflang="fi" href="https://vauhti-app.pages.dev/">
-<link rel="alternate" hreflang="en" href="https://vauhti-app.pages.dev/en/">
-<link rel="alternate" hreflang="it" href="https://vauhti-app.pages.dev/it/">
 <link rel="alternate" hreflang="x-default" href="https://vauhti-app.pages.dev/">
 <link rel="icon" href="assets/favicon.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/fonts.css?v=1">
 <link rel="stylesheet" href="assets/tokens.css?v=1">
-<link rel="stylesheet" href="assets/site.css?v=6">
+<link rel="stylesheet" href="assets/site.css?v=4">
+<style>.footer-bottom .v2-link{color:#00C2A8;text-decoration:none;font-weight:600}</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Siirry sisältöön</a>
@@ -67,11 +62,6 @@
     <circle cx="9" cy="8.2" r="3.8"/><path d="M2.4 20.4c.5-3.6 3.3-5.8 6.6-5.8s6.1 2.2 6.6 5.8"/>
     <path d="M16.2 5.1a3.8 3.8 0 0 1 0 7.4M17.6 14.9c2.4.5 3.9 2.4 4.2 5.1"/>
   </symbol>
-  <symbol id="i-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="12" cy="16.4" rx="4.6" ry="3.6"/>
-    <circle cx="6.2" cy="11.6" r="1.7"/><circle cx="9.8" cy="8.4" r="1.7"/>
-    <circle cx="14.2" cy="8.4" r="1.7"/><circle cx="17.8" cy="11.6" r="1.7"/>
-  </symbol>
   <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
     <rect x="2.8" y="5.4" width="18.4" height="13.2" rx="2.4"/><path d="M2.8 10h18.4"/><path d="M6.6 14.6h3.2"/>
   </symbol>
@@ -106,8 +96,8 @@
 
     <nav class="nav-links" aria-label="Päävalikko">
       <a href="#kyyti">Kyyti</a>
-      <a href="#reiluus">Reiluus</a>
-      <a href="#hinnat">Kyytiluokat</a>
+      <a href="#sovellus">Sovellus</a>
+      <a href="#hinnat">Hinnat</a>
       <a href="#turvallisuus">Turvallisuus</a>
       <a href="#kuljettajalle">Kuljettajalle</a>
       <a href="#yrityksille">Yrityksille</a>
@@ -115,11 +105,6 @@
     </nav>
 
     <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Kieli">
-        <a href="./" aria-current="true">FI</a>
-        <a href="en/" lang="en" hreflang="en">EN</a>
-        <a href="it/" lang="it" hreflang="it">IT</a>
-      </div>
       <a class="nav-login" href="#lataa">Kirjaudu</a>
       <a class="btn btn-primary btn-sm" href="#lataa">Lataa sovellus</a>
     </div>
@@ -135,17 +120,17 @@
   <section class="hero" id="kyyti">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow on-dark" data-cms="kyyti_kotimainen_taksipalvelu_5_komissio">Kotimainen taksipalvelu · 5 % komissio</span>
-        <h1 data-cms="kyyti_reilu_tapa_tilata_taksi">Reilu tapa<br><em>tilata taksi.</em></h1>
-        <p class="hero-sub" data-cms="kyyti_taksiala_suomessa_on_ollut_kestamattomalla_poh">Taksiala Suomessa on ollut kestämättömällä pohjalla. Vauhti on kotimainen reilu vaihtoehto: turvallinen, nopea ja helppo tapa tilata taksi — ja reilu tapa ajaa taksia. Kuljettaja maksaa vain 5&nbsp;% komissiota.</p>
+        <span class="eyebrow on-dark" data-cms="kyyti_nyt_helsingissa_tampereella_turussa">Nyt Helsingissä · Tampereella · Turussa</span>
+        <h1 data-cms="kyyti_koko_kaupunki_yhdella_napautuksella">Koko kaupunki<br><em>yhdellä napautuksella.</em></h1>
+        <p class="hero-sub" data-cms="kyyti_kiintea_hinta_tiedossa_ennen_kyytia_luotettava">Kiinteä hinta tiedossa ennen kyytiä. Luotettavat kuljettajat, suomalainen asiakaspalvelu ja maksu sillä tavalla kuin sinulle sopii.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#kyyti">Tilaa kyyti</a>
           <a class="btn btn-ghost" href="#kuljettajalle">Aja Vauhtia</a>
         </div>
         <div class="hero-stats">
-          <div><b>5 %</b><span>Komissio</span></div>
-          <div><b>3 min</b><span>Keskimääräinen nouto</span></div>
           <div><b>4,92 ★</b><span>Kuljettajien keskiarvo</span></div>
+          <div><b>3 min</b><span>Keskimääräinen nouto</span></div>
+          <div><b>120 000+</b><span>Kyytiä vuonna 2026</span></div>
         </div>
       </div>
 
@@ -167,18 +152,23 @@
         <div class="ride-list" role="group" aria-label="Kyytiluokka">
           <button class="ride-option" type="button" data-price="12,40 €" aria-pressed="true">
             <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>
-            <span class="grow"><span class="name">Vauhti</span><span class="ride-fastest">Nopein</span><span class="meta">4 min · 1–4 henkilöä</span></span>
+            <span class="grow"><span class="name">VauhtiX</span><span class="meta">4 min · 1–4 henkilöä</span></span>
             <span class="price"><b>12,40 €</b><span>3,2 km</span></span>
           </button>
-          <button class="ride-option" type="button" data-price="15,80 €" aria-pressed="false">
-            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
-            <span class="grow"><span class="name">Vauhti Perhe</span><span class="meta">6 min · lastenistuin</span></span>
-            <span class="price"><b>15,80 €</b><span>3,2 km</span></span>
+          <button class="ride-option" type="button" data-price="14,20 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Green</span><span class="meta">5 min · täyssähkö</span></span>
+            <span class="price"><b>14,20 €</b><span>3,2 km</span></span>
           </button>
-          <button class="ride-option" type="button" data-price="14,60 €" aria-pressed="false">
-            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg></span>
-            <span class="grow"><span class="name">Vauhti Lemmikki</span><span class="meta">5 min · lemmikki mukana</span></span>
-            <span class="price"><b>14,60 €</b><span>3,2 km</span></span>
+          <button class="ride-option" type="button" data-price="16,80 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>
+            <span class="grow"><span class="name">Vauhti Comfort</span><span class="meta">6 min · hiljaisempi kyyti</span></span>
+            <span class="price"><b>16,80 €</b><span>3,2 km</span></span>
+          </button>
+          <button class="ride-option" type="button" data-price="21,90 €" aria-pressed="false">
+            <span class="veh"><svg class="ico" aria-hidden="true"><use href="#i-van"/></svg></span>
+            <span class="grow"><span class="name">VauhtiXL</span><span class="meta">9 min · 1–6 henkilöä</span></span>
+            <span class="price"><b>21,90 €</b><span>3,2 km</span></span>
           </button>
         </div>
 
@@ -196,42 +186,14 @@
   <!-- ================= TRUST ================= -->
   <div class="trust-strip" aria-label="Vauhti lukuina">
     <div class="wrap trust-grid">
-      <div class="trust-item"><b>95 %</b><span>Jää kuljettajalle</span></div>
-      <div class="trust-item"><b>0 €</b><span>Aloitusmaksu</span></div>
-      <div class="trust-item"><b>3</b><span>Selkeää kyytiluokkaa</span></div>
+      <div class="trust-item"><b>4,92 / 5</b><span>Kuljettajien arvosana</span></div>
+      <div class="trust-item"><b>3 min</b><span>Keskimääräinen nouto</span></div>
+      <div class="trust-item"><b>120 000+</b><span>Kyytiä vuonna 2026</span></div>
       <div class="trust-item"><b>24/7</b><span>Tuki suomeksi</span></div>
     </div>
   </div>
 
-  <!-- ================= FAIR ALTERNATIVE ================= -->
-  <section class="section fair" id="reiluus">
-    <div class="wrap fair-grid">
-      <div class="fair-copy">
-        <span class="eyebrow on-dark" data-cms="reiluus_reilu_vaihtoehto">Reilu vaihtoehto</span>
-        <h2 data-cms="reiluus_taksiala_on_ollut_kestamattomalla_pohjalla">Taksiala on ollut<br><em>kestämättömällä pohjalla.</em></h2>
-        <p class="lead" data-cms="reiluus_vauhti_tuo_markkinoille_reilun_vaihtoehdon_kot">Vauhti tuo markkinoille reilun vaihtoehdon: kotimaisen palvelun, jonka komissio on vain 5 %. Kuljettaja pitää 95 % jokaisesta kyydistä.</p>
-        <p class="fair-claim" data-cms="reiluus_turvallinen_nopea_ja_helppo_tapa_tilata_taksi">Turvallinen, nopea ja helppo tapa tilata taksi.<br><span>Reilu tapa ajaa taksia.</span></p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="demo/?screen=/home">Tilaa kyyti</a>
-          <a class="btn btn-ghost" href="#kuljettajalle">Ala kuljettajaksi</a>
-        </div>
-      </div>
-
-      <div class="fair-panel" aria-label="Mihin kyydin hinta menee">
-        <div class="fair-panel-head">
-          <span class="tiny">Esimerkki 20 € kyydistä</span>
-          <b>Missä raha menee?</b>
-        </div>
-        <div class="fair-split" aria-hidden="true"><span></span></div>
-        <div class="fair-rows">
-          <div class="fair-row"><span>Kuljettajalle</span><b>19,00 €</b></div>
-          <div class="fair-row"><span>Vauhti · 5 %</span><b>1,00 €</b></div>
-          <div class="fair-row muted"><span>Aloitusmaksu</span><b>0,00 €</b></div>
-        </div>
-        <p class="fair-note" data-cms="reiluus_ei_piilokuluja_ei_yllattavia_vahennyksia_kulje">Ei piilokuluja. Ei yllättäviä vähennyksiä. Kuljettaja pitää 95 % jokaisesta kyydistä.</p>
-      </div>
-    </div>
-  </section>
+  <!-- ================= HOW IT WORKS ================= -->
   <section class="section" id="nain-se-toimii">
     <div class="wrap">
       <div class="section-head">
@@ -265,27 +227,33 @@
       <div class="section-head">
         <span class="eyebrow" data-cms="hinnat_kyytiluokat">Kyytiluokat</span>
         <h2 data-cms="hinnat_valitse_kyyti_joka_sopii_matkaan">Valitse kyyti, joka sopii matkaan.</h2>
-        <p data-cms="hinnat_kolme_selkeaa_vaihtoehtoa_kaikki_hinnat_ovat_k">Kolme selkeää vaihtoehtoa. Kaikki hinnat ovat kiinteitä ja sisältävät ALV 25,5 %. Esimerkkihinta välillä Kamppi–Kallio, 3,2 km.</p>
+        <p data-cms="hinnat_kaikki_hinnat_ovat_kiinteita_ja_sisaltavat_alv">Kaikki hinnat ovat kiinteitä ja sisältävät ALV 25,5 %. Esimerkkihinta välillä Kamppi–Kallio, 3,2 km.</p>
       </div>
       <div class="classes">
         <article class="class-card highlight">
           <span class="tag">Suosituin</span>
           <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-car"/></svg></span>
-          <h3 data-cms="hinnat_vauhti">Vauhti</h3>
-          <p data-cms="hinnat_nopea_ja_edullinen_peruskyyti_arkeen_1_4_henki">Nopea ja edullinen peruskyyti arkeen. 1–4 henkilöä.</p>
+          <h3 data-cms="hinnat_vauhtix">VauhtiX</h3>
+          <p data-cms="hinnat_nopea_ja_edullinen_kyyti_yhdelle_tai_neljalle">Nopea ja edullinen kyyti yhdelle tai neljälle.</p>
           <div class="price"><b>12,40 €</b><span>4 min · 3,2 km</span></div>
         </article>
         <article class="class-card">
-          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-users"/></svg></span>
-          <h3 data-cms="hinnat_vauhti_perhe">Vauhti Perhe</h3>
-          <p data-cms="hinnat_tilava_kyyti_koko_perheelle_lastenistuin_pyynn">Tilava kyyti koko perheelle. Lastenistuin pyynnöstä.</p>
-          <div class="price"><b>15,80 €</b><span>6 min · 3,2 km</span></div>
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_green">Vauhti Green</h3>
+          <p data-cms="hinnat_tayssahkoinen_kyyti_pienemmalla_hiilijalanjalj">Täyssähköinen kyyti pienemmällä hiilijalanjäljellä.</p>
+          <div class="price"><b>14,20 €</b><span>5 min · 3,2 km</span></div>
         </article>
         <article class="class-card">
-          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-paw"/></svg></span>
-          <h3 data-cms="hinnat_vauhti_lemmikki">Vauhti Lemmikki</h3>
-          <p data-cms="hinnat_lemmikki_matkustaa_mukana_suojapeite_ja_hihna">Lemmikki matkustaa mukana. Suojapeite ja hihna valmiina.</p>
-          <div class="price"><b>14,60 €</b><span>5 min · 3,2 km</span></div>
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-car"/></svg></span>
+          <h3 data-cms="hinnat_vauhti_comfort">Vauhti Comfort</h3>
+          <p data-cms="hinnat_hiljaisempi_matka_isompi_auto_ja_kokeneempi_ku">Hiljaisempi matka, isompi auto ja kokeneempi kuljettaja.</p>
+          <div class="price"><b>16,80 €</b><span>6 min · 3,2 km</span></div>
+        </article>
+        <article class="class-card">
+          <span class="veh"><svg class="ico" style="width:26px;height:26px" aria-hidden="true"><use href="#i-van"/></svg></span>
+          <h3 data-cms="hinnat_vauhtixl">VauhtiXL</h3>
+          <p data-cms="hinnat_kuudelle_matkustajalle_ja_tavaroille_myos_lent">Kuudelle matkustajalle ja tavaroille. Myös lentokentälle.</p>
+          <div class="price"><b>21,90 €</b><span>9 min · 3,2 km</span></div>
         </article>
       </div>
     </div>
@@ -310,7 +278,7 @@
           <figcaption><b>Etusivu</b>Missä olet, minne menet.</figcaption>
         </figure>
         <figure class="shot-item">
-          <div class="phone"><img src="assets/shots/options.png" alt="Kyytivalinta: Vauhti, Vauhti Perhe ja Vauhti Lemmikki kiinteillä hinnoilla"></div>
+          <div class="phone"><img src="assets/shots/options.png" alt="Kyytivalinta: VauhtiX, Green, Comfort ja XL kiinteillä hinnoilla"></div>
           <figcaption><b>Kyytivalinta</b>Hinta ennen tilausta.</figcaption>
         </figure>
         <figure class="shot-item">
@@ -337,7 +305,7 @@
 
       <div class="showcase-cta">
         <a class="btn btn-primary" href="demo/?screen=/home">Avaa interaktiivinen demo</a>
-        <a class="btn btn-ghost" href="demo/?screen=/index">Kaikki 20 näyttöä</a>
+        <a class="btn btn-ghost" href="../index.html#rider">Kaikki 20 näyttöä</a>
       </div>
     </div>
   </section>
@@ -377,19 +345,19 @@
     <div class="wrap driver-grid">
       <div>
         <span class="eyebrow on-dark" data-cms="kuljettajalle_kuljettajille">Kuljettajille</span>
-        <h2 data-cms="kuljettajalle_reilu_tapa_ajaa_taksia">Reilu tapa<br><em>ajaa taksia.</em></h2>
-        <p class="lead" data-cms="kuljettajalle_vauhti_on_kotimainen_palvelu_jonka_komissio_on">Vauhti on kotimainen palvelu, jonka komissio on vain 5 % — sinä pidät 95 % jokaisesta kyydistä.</p>
+        <h2 data-cms="kuljettajalle_aja_omilla_ehdoillasi_ansaitse_reilusti">Aja omilla ehdoillasi.<br>Ansaitse reilusti.</h2>
+        <p class="lead" data-cms="kuljettajalle_vauhti_maksaa_kiintean_12_valityspalkkion_ja_n">Vauhti maksaa kiinteän 12 % välityspalkkion ja näyttää ansiot reaaliajassa. Ei aloitusmaksua, ei piilokuluja, ei yllättäviä vähennyksiä.</p>
 
         <div class="driver-stats">
-          <div class="driver-stat"><b>5 %</b><span>Komissio</span></div>
-          <div class="driver-stat"><b>95 %</b><span>Kuljettajalle</span></div>
+          <div class="driver-stat"><b>68,40 €</b><span>Eilinen päivä</span></div>
+          <div class="driver-stat"><b>92 %</b><span>Hyväksymisaste</span></div>
           <div class="driver-stat"><b>0 €</b><span>Aloitusmaksu</span></div>
         </div>
 
         <ul class="benefits">
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Vain 5 % välityspalkkio — ei aloitusmaksua eikä piilovähennyksiä.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> 95 % jokaisesta kyydistä jää sinulle.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Kiinteä 12 % välityspalkkio — tiedät aina mitä maksat.</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Viikon tavoitebonukset ja läpinäkyvä tilitys.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Tilitositteet, vero-opastus ja Y-tunnustuki.</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Tuki suomeksi 24/7 ja turvapainike myös kuljettajalle.</li>
         </ul>
 
@@ -470,14 +438,6 @@
           <p data-cms="ukk_naet_lopullisen_hinnan_ennen_kuin_vahvistat_ti">Näet lopullisen hinnan ennen kuin vahvistat tilauksen. Hinta ei muutu matkan aikana, vaikka liikenne hidastuisi. Mahdollinen ruuhkakorotus kerrotaan aina etukäteen.</p>
         </details>
         <details>
-          <summary data-cms="ukk_paljonko_vauhti_ottaa_komissiota">Paljonko Vauhti ottaa komissiota?</summary>
-          <p data-cms="ukk_vain_5_kuljettaja_pitaa_95_jokaisesta_kyydista">Vain 5 %. Kuljettaja pitää 95 % jokaisesta kyydistä. Aloitusmaksu on 0 € eikä piilovähennyksiä ole.</p>
-        </details>
-        <details>
-          <summary data-cms="ukk_mitka_kyytiluokat_ovat_tarjolla">Mitkä kyytiluokat ovat tarjolla?</summary>
-          <p data-cms="ukk_vauhti_vauhti_perhe_ja_vauhti_lemmikki_vauhti">Vauhti, Vauhti Perhe ja Vauhti Lemmikki. Vauhti on nopea peruskyyti, Perhe on tilava kyyti lastenistuimella ja Lemmikki ottaa lemmikin mukaan.</p>
-        </details>
-        <details>
           <summary data-cms="ukk_mita_jos_minun_pitaa_peruuttaa_kyyti">Mitä jos minun pitää peruuttaa kyyti?</summary>
           <p data-cms="ukk_voit_peruuttaa_ilman_kuluja_kunnes_kuljettaja">Voit peruuttaa ilman kuluja, kunnes kuljettaja on lähtenyt liikkeelle. Tämän jälkeen peruutusmaksu on 5 minuuttia ja se näytetään aina ennen vahvistusta.</p>
         </details>
@@ -507,7 +467,7 @@
       <div>
         <span class="eyebrow on-dark" data-cms="lataa_lataa_sovellus">Lataa sovellus</span>
         <h2 data-cms="lataa_kaupunki_on_lahella">Kaupunki on lähellä.</h2>
-        <p data-cms="lataa_lataa_vauhti_ja_tilaa_ensimmainen_kyyti_kiinte">Lataa Vauhti ja tilaa ensimmäinen kyyti. Kiinteä hinta ennen kyytiä, suomalainen tuki ja reilu 5 % komissio.</p>
+        <p data-cms="lataa_lataa_vauhti_ja_tilaa_ensimmainen_kyyti_kiinte">Lataa Vauhti ja tilaa ensimmäinen kyyti. Kiinteä hinta, suomalainen tuki ja turva aina mukana.</p>
         <div class="store-buttons">
           <a class="store-btn" href="demo/?screen=/welcome">
             <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.4 12.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.4.8-.7 0-1.8-.8-2.9-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.7-.4 6.8 1.1 9 .7 1.1 1.6 2.3 2.7 2.2 1.1 0 1.5-.7 2.9-.7s1.7.7 2.9.7c1.2 0 1.9-1.1 2.6-2.2.8-1.2 1.2-2.4 1.2-2.5 0 0-2.1-.8-2.1-3.6Z"/><path d="M14.2 5.9c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.6.6-1 1.6-.9 2.6 1 .1 1.9-.5 2.5-1.2Z"/></svg>
@@ -539,17 +499,15 @@
           </svg>
           <span>vauhti<span class="dot">.</span></span>
         </a>
-        <p data-cms="footer_kotimainen_taksipalvelu_jonka_komissio_on_vain">Kotimainen taksipalvelu, jonka komissio on vain 5 %. Turvallinen, nopea ja helppo tapa tilata taksi.</p>
+        <p data-cms="footer_suomalainen_kyytipalvelu_jossa_hinta_on_tiedos">Suomalainen kyytipalvelu, jossa hinta on tiedossa ennen kyytiä. Rakennettu pohjoiseen arkeen.</p>
       </div>
       <div class="footer-col">
         <h3>Vauhti</h3>
         <a href="#kyyti">Tilaa kyyti</a>
-        <a href="#reiluus">Reiluus</a>
-        <a href="#hinnat">Kyytiluokat</a>
+        <a href="#hinnat">Hinnat</a>
         <a href="#turvallisuus">Turvallisuus</a>
         <a href="#sovellus">Sovellus</a>
-        <a href="v1/">Aiempi versio</a>
-      </div>
+              </div>
       <div class="footer-col">
         <h3>Kuljettajille</h3>
         <a href="#kuljettajalle">Aja Vauhtia</a>
@@ -567,10 +525,11 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Vauhti Oy · Y-tunnus 1234567-8 · Helsinki</span>
+      <a class="v2-link" href="/v2/">Uusi versio (v2) →</a>
       <div class="lang" role="group" aria-label="Kieli">
-        <a href="./" aria-current="true">FI</a>
-        <a href="en/" lang="en" hreflang="en">EN</a>
-        <a href="it/" lang="it" hreflang="it">IT</a>
+        <button type="button" aria-pressed="true">FI</button>
+        <button type="button" aria-pressed="false">SV</button>
+        <button type="button" aria-pressed="false">EN</button>
       </div>
     </div>
   </div>
@@ -599,6 +558,14 @@
       document.querySelectorAll('.ride-option').forEach((o) => o.setAttribute('aria-pressed', 'false'));
       option.setAttribute('aria-pressed', 'true');
       if (total) total.textContent = option.dataset.price;
+    });
+  });
+
+  // Language switcher (visual state only in this prototype)
+  document.querySelectorAll('.lang button').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.lang button').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      button.setAttribute('aria-pressed', 'true');
     });
   });
 </script>

@@ -1,0 +1,7 @@
+# Old v1 archive path and the first v2 URLs.
+/v1            /                 301
+/v1/*          /:splat           301
+/en            /v2/en/           301
+/en/*          /v2/en/:splat     301
+/it            /v2/it/           301
+/it/*          /v2/it/:splat     301
